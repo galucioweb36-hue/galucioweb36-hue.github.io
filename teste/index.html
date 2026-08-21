@@ -285,7 +285,11 @@
     font-size:0.88rem;
   }
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
-  footer a{color:var(--ink-text);text-decoration:none;}
+  footer a{color:var(--ink-text);text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
+  footer a:hover{color:var(--gold);}
+  .redes{display:inline-flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .redes svg{width:19px;height:19px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;}
+  .redes svg .cheio{fill:currentColor;stroke:none;}
 
   @media (max-width:700px){
     .topo{padding:56px 0 48px;}
@@ -371,11 +375,10 @@
             <span class="de">R$ 35</span>
             <span class="por">R$ 27</span>
           </div>
-          <a class="btn btn-gold btn-wide" href="https://pay.hotmart.com/C103662046D?off=mk76pcoe&hotfeature=51&_hi=eyJjaWQiOiIxNzg3MjcyMzU4OTE0ODA2NzM4NzQ1NDMwMjE5MDAwIiwiYmlkIjoiMTc4NzI3MjM1ODkxNDgwNjczODc0NTQzMDIxOTAwMCIsInNpZCI6IjViMzkyMTdkYTQzYjQ5MTE5MzA2YzZkYjFhZTNmMTVhIn0%3D.1787338222890&bid=1787338224327&utm_source=teste&utm_medium=site&utm_content=resultado">Quero o e-book agora</a>
+          <a class="btn btn-gold btn-wide" href="../">Conhecer o e-book</a>
           <div class="garantia">Acesso imediato em PDF · 7 dias de garantia</div>
         </div>
       </div>
-      <a class="ver-mais" href="../">Ver a página completa do e-book, com os capítulos e sobre o autor</a>
 
       <blockquote>
         Para a liberdade foi que Cristo nos libertou. Permanecei, pois, firmes e não vos submetais, de novo, a jugo de escravidão.
@@ -388,7 +391,16 @@
 <footer>
   <div class="wrap">
     <span>Pr. Felipe Galucio</span>
-    <span><a href="https://instagram.com/prfelipegalucio">@prfelipegalucio</a> · <a href="https://instagram.com/pastorfelipegalucio">@pastorfelipegalucio</a></span>
+    <span class="redes">
+      <a href="https://instagram.com/prfelipegalucio" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.25" class="cheio"/></svg>
+        @prfelipegalucio
+      </a>
+      <a href="https://youtube.com/@pastorfelipegalucio" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.8" y="5" width="20.4" height="14" rx="4.4"/><path d="M10.2 9.2v5.6l4.9-2.8z" class="cheio"/></svg>
+        @pastorfelipegalucio
+      </a>
+    </span>
   </div>
 </footer>
 
