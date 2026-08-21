@@ -225,6 +225,7 @@
 
   /* ---------- captura ---------- */
   .captura{
+    display:none;
     background:var(--paper-2);
     border:1px solid var(--paper-line);
     border-radius:12px;
@@ -265,6 +266,7 @@
     padding:20px 22px;
   }
   .obrigado.mostrar{display:block;}
+  .captura.mostrar{display:block;}
   .obrigado b{font-family:'Fraunces',serif;font-size:1.15rem;display:block;margin-bottom:6px;}
 
   /* ---------- próximo passo ---------- */
@@ -381,26 +383,11 @@
   </div>
 </form>
 
-<section id="resultado" aria-live="polite">
-  <div class="wrap">
-    <div class="placar" id="placar">
-      <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
-      <h2 id="faixa-titulo"></h2>
-      <p id="faixa-texto"></p>
-    </div>
-
-    <div class="socorro" id="socorro" hidden>
-      <b>Um passo antes de qualquer outro.</b> Se você está em sofrimento espiritual ou emocional intenso, procure agora uma pessoa de confiança fora do ambiente que gera confusão: um pastor maduro de outra comunidade, um conselheiro cristão ou um profissional de saúde mental. Nenhum material substitui esse cuidado. Se houver risco à sua integridade, procure ajuda imediata — no Brasil, o CVV atende de graça pelo telefone 188, 24 horas por dia.
-    </div>
-
-    <div class="nota">
-      <b>Observação pastoral importante.</b> Este questionário não substitui discernimento, oração nem acompanhamento pastoral ou profissional. Ele existe para ajudar você a nomear o que sente e a compreender que sofrimento espiritual recorrente não é parte normal da fé cristã.
-    </div>
-
-    <div class="captura" id="captura">
-      <div class="eyebrow">Um convite, se você quiser</div>
-      <h3>Posso continuar te acompanhando nisso?</h3>
-      <p class="intro">Se este teste tocou em alguma coisa real, deixa seu contato que eu te mando os próximos materiais que eu produzir sobre abuso religioso e reconstrução da fé. Sem isso você continua com acesso a tudo nesta página, é só um convite.</p>
+<section id="porta-fora" class="wrap">
+    <div class="captura" id="porta">
+      <div class="eyebrow">Falta um passo</div>
+      <h3>Para onde eu envio o seu resultado?</h3>
+      <p class="intro">Suas respostas já estão computadas. Deixe seu contato para ver o resultado agora nesta tela e receber os próximos materiais que eu produzir sobre abuso religioso e reconstrução da fé.</p>
 
       <iframe name="destino-form" id="destino-form" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
 
@@ -422,50 +409,51 @@
             <span class="recado" id="erro-zap"></span>
           </div>
         </div>
-        <button type="submit" class="btn btn-ink btn-wide" id="enviar-contato">Quero receber</button>
+        <button type="submit" class="btn btn-ink btn-wide" id="enviar-contato">Ver meu resultado</button>
         <p class="privacidade">Uso seu contato só para enviar material sobre o tema. Não repasso para ninguém, e você pode pedir para sair quando quiser.</p>
+        <p class="privacidade socorro-curto">Em sofrimento intenso agora? Não espere pelo resultado: CVV 188, de graça, 24 horas.</p>
       </form>
 
-      <div class="obrigado" id="obrigado">
-        <b>Recebido. Obrigado pela confiança.</b>
-        Assim que eu publicar material novo sobre isso, você recebe. Enquanto isso, se algum sinal do teste bateu forte, não carregue sozinho: converse com alguém maduro e de fora do ambiente que te confunde.
-      </div>
+
+    </div>
+
+</section>
+
+<section id="resultado" aria-live="polite">
+  <div class="wrap">
+    <div class="placar" id="placar">
+      <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
+      <h2 id="faixa-titulo"></h2>
+      <p id="faixa-texto"></p>
+    </div>
+
+    <div class="socorro" id="socorro" hidden>
+      <b>Antes de qualquer outra coisa:</b> não carregue isso sozinho. Procure alguém maduro fora do ambiente que te confunde — um pastor de outra comunidade, um conselheiro ou um profissional de saúde mental. Se o sofrimento estiver intenso, o CVV atende de graça no 188, 24 horas.
     </div>
 
     <div class="proximo">
       <div class="eyebrow">Qual é o próximo passo?</div>
       <h2>Identificar é o começo. Entender é o que liberta.</h2>
-      <p>Este teste foi criado com um propósito específico: ajudar você a identificar. Ele não foi pensado para resolver todas as questões, nem para conduzir decisões profundas que envolvem a sua história pessoal. É um primeiro passo, para dar nome ao que você possivelmente esteja vivendo.</p>
-      <p>Se, ao responder, você percebeu que muitos desses sinais fazem parte da sua experiência, é possível que o próximo passo não seja simplesmente mudar de igreja ou seguir em frente, mas entender melhor o que aconteceu com você:</p>
-
-      <ul class="perguntas-livro">
-        <li>Como o abuso religioso se forma e se sustenta?</li>
-        <li>Por que ele confunde tanto a consciência cristã?</li>
-        <li>Quais distorções teológicas costumam alimentá-lo?</li>
-        <li>Como iniciar um processo de restauração espiritual sem abandonar o evangelho?</li>
-      </ul>
-
-      <p>Foi com esse objetivo que escrevi o e-book <b>Desmascarando o Abuso Religioso</b>. Nele aprofundo aquilo que este teste apenas introduziu: não com acusações genéricas nem discurso sensacionalista, mas com análise bíblica, teológica e pastoral responsável, pensada para cristãos que desejam cura sem perder a fé.</p>
+      <p>Este teste ajuda você a dar nome ao que vive. Entender como o abuso religioso se forma, por que ele confunde tanto a consciência cristã e como começar a reconstrução sem abandonar o evangelho é o que eu desenvolvo no e-book.</p>
 
       <div class="oferta">
         <img src="../img/capa.jpg" alt="Capa do e-book Desmascarando o Abuso Religioso">
         <div>
           <h3>Desmascarando o Abuso Religioso</h3>
           <p class="linha">Como se libertar de lideranças narcisistas sem abandonar a fé</p>
-          <div class="preco">
-            <span class="de">R$ 35</span>
-            <span class="por">R$ 27</span>
-          </div>
           <a class="btn btn-gold btn-wide" href="../">Conhecer o e-book</a>
-          <div class="garantia">Acesso imediato em PDF · 7 dias de garantia</div>
         </div>
       </div>
-
-      <blockquote>
-        Para a liberdade foi que Cristo nos libertou. Permanecei, pois, firmes e não vos submetais, de novo, a jugo de escravidão.
-        <cite>Gálatas 5.1</cite>
-      </blockquote>
     </div>
+
+    <div class="nota">
+      <b>Palavra pastoral.</b> Este teste não substitui discernimento, oração nem acompanhamento pastoral ou profissional. Ele serve para você nomear o que sente: sofrimento espiritual recorrente não é parte normal da fé cristã.
+    </div>
+
+    <blockquote>
+      Para a liberdade foi que Cristo nos libertou. Permanecei, pois, firmes e não vos submetais, de novo, a jugo de escravidão.
+      <cite>Gálatas 5.1</cite>
+    </blockquote>
   </div>
 </section>
 
@@ -561,6 +549,28 @@
     }
   });
 
+  var pontuacao = null;
+  var faixaEscolhida = null;
+  var porta = document.getElementById('porta');
+  var secaoResultado = document.getElementById('resultado');
+
+  function jaDeixouContato(){
+    try { return localStorage.getItem('contato-enviado') === '1'; } catch(err){ return false; }
+  }
+
+  function mostrarResultado(){
+    var placar = document.getElementById('placar');
+    placar.style.setProperty('--faixa', faixaEscolhida.cor);
+    placar.style.setProperty('--faixa-clara', faixaEscolhida.clara);
+    document.getElementById('pontos').textContent = pontuacao;
+    document.getElementById('faixa-titulo').textContent = faixaEscolhida.titulo;
+    document.getElementById('faixa-texto').textContent = faixaEscolhida.texto;
+    document.getElementById('socorro').hidden = (pontuacao < 23);
+    porta.style.display = 'none';
+    secaoResultado.classList.add('mostrar');
+    secaoResultado.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var primeiraFalta = null;
@@ -583,22 +593,20 @@
       return;
     }
 
-    var faixa = FAIXAS[FAIXAS.length - 1];
+    pontuacao = total;
+    faixaEscolhida = FAIXAS[FAIXAS.length - 1];
     for (var i = 0; i < FAIXAS.length; i++){
-      if (total <= FAIXAS[i].max){ faixa = FAIXAS[i]; break; }
+      if (total <= FAIXAS[i].max){ faixaEscolhida = FAIXAS[i]; break; }
     }
 
-    var placar = document.getElementById('placar');
-    placar.style.setProperty('--faixa', faixa.cor);
-    placar.style.setProperty('--faixa-clara', faixa.clara);
-    document.getElementById('pontos').textContent = total;
-    document.getElementById('faixa-titulo').textContent = faixa.titulo;
-    document.getElementById('faixa-texto').textContent = faixa.texto;
-    document.getElementById('socorro').hidden = (total < 23);
+    if (jaDeixouContato()){
+      mostrarResultado();
+      return;
+    }
 
-    var secao = document.getElementById('resultado');
-    secao.classList.add('mostrar');
-    secao.scrollIntoView({behavior:'smooth', block:'start'});
+    porta.classList.add('mostrar');
+    porta.scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('c-nome').focus({preventScroll:true});
   });
 
   // ---------- captura de contato ----------
@@ -606,14 +614,10 @@
   var iframeDestino = document.getElementById('destino-form');
   var enviando = false;
 
-  function limpaErro(campo, recado){
-    campo.classList.remove('erro');
-    document.getElementById(recado).textContent = '';
-  }
-
-  ['c-nome','c-email','c-zap'].forEach(function(id){
-    document.getElementById(id).addEventListener('input', function(){
-      limpaErro(this, 'erro-' + id.split('-')[1]);
+  ['nome','email','zap'].forEach(function(chave){
+    document.getElementById('c-' + chave).addEventListener('input', function(){
+      this.classList.remove('erro');
+      document.getElementById('erro-' + chave).textContent = '';
     });
   });
 
@@ -645,23 +649,15 @@
     }
 
     enviando = true;
-    document.getElementById('enviar-contato').textContent = 'Enviando...';
+    document.getElementById('enviar-contato').textContent = 'Abrindo seu resultado...';
   });
 
   iframeDestino.addEventListener('load', function(){
     if (!enviando) return;
     enviando = false;
-    formContato.style.display = 'none';
-    document.getElementById('obrigado').classList.add('mostrar');
     try { localStorage.setItem('contato-enviado','1'); } catch(err){}
+    mostrarResultado();
   });
-
-  try {
-    if (localStorage.getItem('contato-enviado') === '1'){
-      formContato.style.display = 'none';
-      document.getElementById('obrigado').classList.add('mostrar');
-    }
-  } catch(err){}
 
   atualizar();
 })();
