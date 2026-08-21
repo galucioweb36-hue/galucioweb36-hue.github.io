@@ -223,6 +223,50 @@
   }
   .socorro b{color:var(--ajuda);}
 
+  /* ---------- captura ---------- */
+  .captura{
+    background:var(--paper-2);
+    border:1px solid var(--paper-line);
+    border-radius:12px;
+    padding:28px 26px;
+    margin-top:20px;
+  }
+  .captura h3{
+    font-family:'Fraunces',serif;
+    font-size:1.4rem;
+    font-weight:600;
+    margin:8px 0 10px;
+  }
+  .captura .intro{color:var(--slate);font-size:0.97rem;margin:0 0 20px;max-width:56ch;}
+  .campos{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .campo{display:flex;flex-direction:column;gap:6px;}
+  .campo.largo{grid-column:1 / -1;}
+  .campo label{font-size:0.82rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--gold-deep);}
+  .campo input{
+    font-family:'Karla',sans-serif;
+    font-size:1rem;
+    padding:13px 14px;
+    border:1px solid var(--paper-line);
+    border-radius:8px;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .campo input:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,147,58,0.16);}
+  .campo input.erro{border-color:var(--ajuda);box-shadow:0 0 0 3px rgba(168,50,31,0.12);}
+  .campo .recado{font-size:0.8rem;color:var(--ajuda);font-weight:600;min-height:1em;}
+  .captura .btn{margin-top:18px;}
+  .privacidade{font-size:0.82rem;color:var(--slate);margin:14px 0 0;}
+  .obrigado{
+    display:none;
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    padding:20px 22px;
+  }
+  .obrigado.mostrar{display:block;}
+  .obrigado b{font-family:'Fraunces',serif;font-size:1.15rem;display:block;margin-bottom:6px;}
+
   /* ---------- próximo passo ---------- */
   .proximo{padding:44px 0 0;}
   .proximo h2{font-size:1.75rem;font-weight:600;margin:12px 0 16px;}
@@ -298,6 +342,8 @@
     .oferta img{max-width:190px;margin:0 auto;}
     .preco{justify-content:center;}
     .placar{padding:28px 22px;}
+    .campos{grid-template-columns:1fr;}
+    .captura{padding:24px 20px;}
   }
 </style>
 </head>
@@ -349,6 +395,41 @@
 
     <div class="nota">
       <b>Observação pastoral importante.</b> Este questionário não substitui discernimento, oração nem acompanhamento pastoral ou profissional. Ele existe para ajudar você a nomear o que sente e a compreender que sofrimento espiritual recorrente não é parte normal da fé cristã.
+    </div>
+
+    <div class="captura" id="captura">
+      <div class="eyebrow">Um convite, se você quiser</div>
+      <h3>Posso continuar te acompanhando nisso?</h3>
+      <p class="intro">Se este teste tocou em alguma coisa real, deixa seu contato que eu te mando os próximos materiais que eu produzir sobre abuso religioso e reconstrução da fé. Sem isso você continua com acesso a tudo nesta página, é só um convite.</p>
+
+      <iframe name="destino-form" id="destino-form" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
+
+      <form id="contato" action="https://docs.google.com/forms/d/e/1FAIpQLSd_0USy5rDwZxUU0YhR8UXx83HaEGjyWUCmChh7gcRpGTzYag/formResponse" method="POST" target="destino-form" novalidate>
+        <div class="campos">
+          <div class="campo largo">
+            <label for="c-nome">Seu nome</label>
+            <input type="text" id="c-nome" name="entry.2143488955" autocomplete="name" placeholder="Como você quer ser chamado">
+            <span class="recado" id="erro-nome"></span>
+          </div>
+          <div class="campo">
+            <label for="c-email">Seu melhor e-mail</label>
+            <input type="email" id="c-email" name="entry.649041442" autocomplete="email" inputmode="email" placeholder="voce@email.com">
+            <span class="recado" id="erro-email"></span>
+          </div>
+          <div class="campo">
+            <label for="c-zap">WhatsApp com DDD</label>
+            <input type="tel" id="c-zap" name="entry.1865890342" autocomplete="tel" inputmode="numeric" placeholder="(94) 99999-9999">
+            <span class="recado" id="erro-zap"></span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-ink btn-wide" id="enviar-contato">Quero receber</button>
+        <p class="privacidade">Uso seu contato só para enviar material sobre o tema. Não repasso para ninguém, e você pode pedir para sair quando quiser.</p>
+      </form>
+
+      <div class="obrigado" id="obrigado">
+        <b>Recebido. Obrigado pela confiança.</b>
+        Assim que eu publicar material novo sobre isso, você recebe. Enquanto isso, se algum sinal do teste bateu forte, não carregue sozinho: converse com alguém maduro e de fora do ambiente que te confunde.
+      </div>
     </div>
 
     <div class="proximo">
@@ -519,6 +600,68 @@
     secao.classList.add('mostrar');
     secao.scrollIntoView({behavior:'smooth', block:'start'});
   });
+
+  // ---------- captura de contato ----------
+  var formContato = document.getElementById('contato');
+  var iframeDestino = document.getElementById('destino-form');
+  var enviando = false;
+
+  function limpaErro(campo, recado){
+    campo.classList.remove('erro');
+    document.getElementById(recado).textContent = '';
+  }
+
+  ['c-nome','c-email','c-zap'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      limpaErro(this, 'erro-' + id.split('-')[1]);
+    });
+  });
+
+  formContato.addEventListener('submit', function(e){
+    var nome = document.getElementById('c-nome');
+    var email = document.getElementById('c-email');
+    var zap = document.getElementById('c-zap');
+    var falhou = false;
+
+    if (nome.value.trim().length < 2){
+      nome.classList.add('erro');
+      document.getElementById('erro-nome').textContent = 'Me diz como te chamar.';
+      falhou = true;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())){
+      email.classList.add('erro');
+      document.getElementById('erro-email').textContent = 'Confere o e-mail, parece incompleto.';
+      falhou = true;
+    }
+    if (zap.value.replace(/\D/g,'').length < 10){
+      zap.classList.add('erro');
+      document.getElementById('erro-zap').textContent = 'Precisa do DDD e do numero.';
+      falhou = true;
+    }
+
+    if (falhou){
+      e.preventDefault();
+      return;
+    }
+
+    enviando = true;
+    document.getElementById('enviar-contato').textContent = 'Enviando...';
+  });
+
+  iframeDestino.addEventListener('load', function(){
+    if (!enviando) return;
+    enviando = false;
+    formContato.style.display = 'none';
+    document.getElementById('obrigado').classList.add('mostrar');
+    try { localStorage.setItem('contato-enviado','1'); } catch(err){}
+  });
+
+  try {
+    if (localStorage.getItem('contato-enviado') === '1'){
+      formContato.style.display = 'none';
+      document.getElementById('obrigado').classList.add('mostrar');
+    }
+  } catch(err){}
 
   atualizar();
 })();
