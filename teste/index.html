@@ -554,10 +554,6 @@
   var porta = document.getElementById('porta');
   var secaoResultado = document.getElementById('resultado');
 
-  function jaDeixouContato(){
-    try { return localStorage.getItem('contato-enviado') === '1'; } catch(err){ return false; }
-  }
-
   function mostrarResultado(){
     var placar = document.getElementById('placar');
     placar.style.setProperty('--faixa', faixaEscolhida.cor);
@@ -597,11 +593,6 @@
     faixaEscolhida = FAIXAS[FAIXAS.length - 1];
     for (var i = 0; i < FAIXAS.length; i++){
       if (total <= FAIXAS[i].max){ faixaEscolhida = FAIXAS[i]; break; }
-    }
-
-    if (jaDeixouContato()){
-      mostrarResultado();
-      return;
     }
 
     porta.classList.add('mostrar');
@@ -655,7 +646,6 @@
   iframeDestino.addEventListener('load', function(){
     if (!enviando) return;
     enviando = false;
-    try { localStorage.setItem('contato-enviado','1'); } catch(err){}
     mostrarResultado();
   });
 
