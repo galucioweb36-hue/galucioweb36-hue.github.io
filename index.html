@@ -427,6 +427,80 @@
   }
 
   ::selection{background:var(--gold);color:var(--ink);}
+
+  /* ---------- perfis de leitor ---------- */
+  .perfis{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:26px;
+  }
+  .perfil-card{
+    background:var(--paper-2);
+    border:1px solid var(--paper-line);
+    border-left:3px solid var(--gold);
+    border-radius:10px;
+    padding:20px 22px;
+  }
+  .perfil-card .quem{
+    font-family:'Karla',sans-serif;
+    font-weight:700;
+    font-size:0.74rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    display:block;
+    margin-bottom:9px;
+  }
+  .perfil-card p{
+    margin:0;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.02rem;
+    line-height:1.45;
+    color:var(--ink);
+  }
+
+  /* ---------- o que voce leva ---------- */
+  .capaz{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;max-width:640px;}
+  .capaz li{
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    line-height:1.5;
+  }
+  .capaz .marca{
+    flex:none;
+    width:22px;
+    height:22px;
+    margin-top:2px;
+    border-radius:50%;
+    background:var(--gold-deep);
+    color:#fff;
+    font-size:0.72rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* ---------- palavra da garantia ---------- */
+  .garantia-fala{
+    background:var(--paper-2);
+    border:1px solid var(--paper-line);
+    border-radius:12px;
+    padding:26px 28px;
+    margin-top:34px;
+    max-width:660px;
+  }
+  .garantia-fala p{margin:0 0 12px;color:var(--ink);}
+  .garantia-fala p:last-child{margin-bottom:0;}
+  .garantia-fala .assina{color:var(--slate);font-size:0.9rem;}
+
+  @media (max-width:760px){
+    .perfis{grid-template-columns:1fr;}
+    .garantia-fala{padding:22px 20px;}
+  }
 </style>
 </head>
 <body>
@@ -469,6 +543,33 @@
       <li>Quando tenta contar o que viveu, a primeira frase que sai é "mas eu amo muito ele".</li>
       <li>Uma parte sua ainda protege quem te machucou, e isso te dá vergonha.</li>
     </ul>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head prose">
+      <div class="eyebrow">Este guia é pra você se</div>
+      <h2>Quatro pessoas diferentes chegam aqui pelo mesmo motivo.</h2>
+    </div>
+    <div class="perfis">
+      <div class="perfil-card">
+        <span class="quem">O membro confuso</span>
+        <p>“Sinto que algo está errado no comportamento do meu pastor, mas tenho medo de que questionar seja pecado contra Deus.”</p>
+      </div>
+      <div class="perfil-card">
+        <span class="quem">Quem se cala</span>
+        <p>“Abri mão da minha vida familiar e do meu descanso pela igreja, e agora me sinto esgotado e culpado por querer parar.”</p>
+      </div>
+      <div class="perfil-card">
+        <span class="quem">O desigrejado ferido</span>
+        <p>“Saí da instituição porque não aguentava mais o controle, mas não quero perder minha fé e minha relação com Deus.”</p>
+      </div>
+      <div class="perfil-card">
+        <span class="quem">O líder consciente</span>
+        <p>“Quero entender os sinais de um ambiente tóxico pra garantir que minha comunidade seja lugar de cura, e não de manipulação.”</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -543,6 +644,23 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="section-head prose">
+      <div class="eyebrow">Depois da leitura</div>
+      <h2>O que você vai saber fazer.</h2>
+    </div>
+    <ul class="capaz">
+      <li><span class="marca">✓</span><span>Identificar padrões de manipulação psicológica disfarçados de autoridade espiritual.</span></li>
+      <li><span class="marca">✓</span><span>Diferenciar serviço cristão genuíno de exploração e sobrecarga emocional.</span></li>
+      <li><span class="marca">✓</span><span>Desarmar versículos usados fora de contexto pra silenciar quem pergunta.</span></li>
+      <li><span class="marca">✓</span><span>Reconhecer as doutrinas e as estruturas que sustentam ambientes abusivos.</span></li>
+      <li><span class="marca">✓</span><span>Montar um plano de saída, quando sair for o caminho, sem decisão impulsiva.</span></li>
+      <li><span class="marca">✓</span><span>Reconstruir uma fé saudável sem abandonar o evangelho.</span></li>
+    </ul>
+  </div>
+</section>
+
 <section class="tight">
   <div class="wrap">
     <blockquote class="prose" style="font-size:1.4rem;font-weight:400;font-style:italic;line-height:1.5;color:var(--ink);border-left:2px solid var(--gold);padding-left:24px;">
@@ -577,6 +695,16 @@
     </div>
   </div>
 </div>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="garantia-fala">
+      <p>Eu quero que você leia este material com o coração tranquilo. Minha intenção é ajudar você a reencontrar a liberdade em Cristo, sem o peso da manipulação.</p>
+      <p>Por isso a garantia é incondicional: se nos próximos 7 dias você sentir que este não é o conteúdo de que precisa agora, basta me enviar um e-mail. Devolvo 100% do valor, sem perguntas.</p>
+      <p class="assina">Pr. Felipe Galucio</p>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
