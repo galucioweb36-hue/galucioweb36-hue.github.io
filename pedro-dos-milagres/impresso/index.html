@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Livro impresso — O Pedro dos Milagres</title>
+<meta name="description" content="Endereço de entrega para receber a edição impressa de O Pedro dos Milagres, do Pr. Felipe Galucio.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --mar:#264874;
+    --mar-fundo:#1b3355;
+    --noite:#15131c;
+    --papel:#f2f2ef;
+    --papel-2:#e6e7e6;
+    --linha:#d3d5d8;
+    --ardosia:#52576a;
+    --areia:#b98b45;
+    --areia-clara:#d9b171;
+    --claro:#eef0f4;
+    --claro-dim:#a9b4c6;
+    --erro:#a8321f;
+    --ok:#3f7a52;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--papel);color:var(--noite);
+    font-family:'Karla',ui-sans-serif,system-ui,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2{font-family:'Playfair Display',ui-serif,Georgia,serif;margin:0;text-wrap:balance;}
+  .wrap{max-width:660px;margin:0 auto;padding:0 24px;}
+  p{margin:0 0 16px;}
+
+  .topo{
+    background:var(--mar-fundo);
+    background-image:radial-gradient(120% 80% at 70% 10%, #2f5686 0%, #1b3355 60%, #142a47 100%);
+    color:var(--claro);padding:44px 0 40px;
+  }
+  .topo-linha{display:flex;gap:22px;align-items:center;}
+  .topo img{width:104px;flex:none;border-radius:3px;border:1px solid rgba(238,240,244,0.2);box-shadow:0 20px 40px -18px rgba(0,0,0,0.9);}
+  .etiqueta{font-weight:700;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--areia-clara);}
+  .topo h1{font-size:1.6rem;font-weight:600;color:#fff;margin:8px 0 6px;}
+  .topo .valor{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;}
+  .topo .valor small{font-family:'Karla',sans-serif;font-size:0.86rem;color:var(--claro-dim);margin-left:8px;}
+
+  main{padding:40px 0 60px;}
+  .aviso{
+    background:var(--papel-2);border:1px solid var(--linha);border-left:3px solid var(--areia);
+    border-radius:10px;padding:20px 22px;margin-bottom:30px;color:var(--ardosia);font-size:0.97rem;
+  }
+  .aviso b{color:var(--noite);}
+
+  .campos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .campo{display:flex;flex-direction:column;gap:5px;grid-column:span 6;}
+  .campo.metade{grid-column:span 3;}
+  .campo.terco{grid-column:span 2;}
+  .campo.dois-tercos{grid-column:span 4;}
+  label{font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ardosia);}
+  input{
+    font-family:'Karla',sans-serif;font-size:1rem;padding:13px 14px;
+    border:1px solid var(--linha);border-radius:8px;background:#fff;color:var(--noite);width:100%;
+  }
+  input:focus{outline:0;border-color:var(--mar);box-shadow:0 0 0 3px rgba(38,72,116,0.14);}
+  input.erro{border-color:var(--erro);box-shadow:0 0 0 3px rgba(168,50,31,0.12);}
+  input[readonly]{background:var(--papel-2);color:var(--ardosia);}
+  .recado{font-size:0.8rem;color:var(--erro);font-weight:600;min-height:1em;}
+  .dica{font-size:0.82rem;color:var(--ardosia);}
+
+  .btn{
+    display:block;width:100%;border:0;font-family:'Karla',sans-serif;font-weight:700;
+    font-size:1.05rem;padding:18px 26px;border-radius:8px;cursor:pointer;text-align:center;
+    text-decoration:none;transition:background .15s ease, transform .12s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-mar{background:var(--mar);color:#fff;margin-top:26px;}
+  .btn-mar:hover{background:#31598c;}
+  .btn-areia{background:var(--areia);color:#1a1408;}
+  .btn-areia:hover{background:var(--areia-clara);}
+
+  .privacidade{font-size:0.84rem;color:var(--ardosia);margin-top:14px;}
+
+  #pagamento{display:none;}
+  #pagamento.mostrar{display:block;}
+  .caixa-pagar{
+    background:var(--mar);color:var(--claro);border-radius:12px;padding:32px 28px;text-align:center;
+  }
+  .caixa-pagar h2{color:#fff;font-size:1.5rem;margin-bottom:10px;}
+  .caixa-pagar p{color:var(--claro-dim);max-width:44ch;margin:0 auto 22px;}
+  .caixa-pagar .lembrete{
+    background:rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px;
+    margin-top:18px;font-size:0.9rem;color:var(--claro);
+  }
+  .resumo{
+    background:var(--papel-2);border:1px solid var(--linha);border-radius:10px;
+    padding:18px 20px;margin-top:18px;font-size:0.93rem;color:var(--ardosia);
+  }
+  .resumo b{color:var(--noite);}
+
+  footer{background:var(--noite);color:var(--claro-dim);padding:24px 0;font-size:0.85rem;text-align:center;}
+
+  @media (max-width:620px){
+    .campo.metade,.campo.terco,.campo.dois-tercos{grid-column:span 6;}
+    .topo-linha{gap:16px;}
+    .topo img{width:84px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topo">
+  <div class="wrap topo-linha">
+    <img src="../../img/capa-pedro.jpg" alt="Capa de O Pedro dos Milagres">
+    <div>
+      <div class="etiqueta">Edição impressa</div>
+      <h1>O Pedro dos Milagres</h1>
+      <div class="valor">R$ 37,00 <small>livro físico · frete grátis para todo o Brasil</small></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div id="etapa-endereco">
+      <div class="aviso">
+        <b>Por que este passo existe.</b> O sistema de pagamento não me envia o endereço de quem compra, e sem ele eu não consigo postar o livro. Então me diga primeiro para onde enviar. Leva menos de um minuto, e o pagamento vem logo em seguida.
+      </div>
+
+      <form id="entrega" novalidate>
+        <div class="campos">
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" autocomplete="name" placeholder="Quem vai receber o livro">
+            <span class="recado" id="erro-nome"></span>
+          </div>
+
+          <div class="campo metade">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" autocomplete="email" inputmode="email" placeholder="voce@email.com">
+            <span class="recado" id="erro-email"></span>
+          </div>
+
+          <div class="campo metade">
+            <label for="zap">WhatsApp com DDD</label>
+            <input type="tel" id="zap" autocomplete="tel" inputmode="numeric" placeholder="(94) 99999-9999">
+            <span class="recado" id="erro-zap"></span>
+          </div>
+
+          <div class="campo metade">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="68500-000" maxlength="9">
+            <span class="recado" id="erro-cep"></span>
+          </div>
+
+          <div class="campo dois-tercos">
+            <label for="rua">Rua / avenida</label>
+            <input type="text" id="rua" autocomplete="address-line1" placeholder="Preenche sozinho pelo CEP">
+            <span class="recado" id="erro-rua"></span>
+          </div>
+
+          <div class="campo terco">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" inputmode="numeric" placeholder="123">
+            <span class="recado" id="erro-numero"></span>
+          </div>
+
+          <div class="campo metade">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" placeholder="Apto, bloco, ponto de referência">
+          </div>
+
+          <div class="campo metade">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" placeholder="Preenche sozinho pelo CEP">
+          </div>
+
+          <div class="campo dois-tercos">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" placeholder="Preenche sozinho pelo CEP">
+          </div>
+
+          <div class="campo terco">
+            <label for="uf">Estado</label>
+            <input type="text" id="uf" maxlength="2" placeholder="UF">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-mar" id="continuar">Continuar para o pagamento</button>
+        <p class="privacidade">Uso estes dados só para postar o seu livro e te avisar do envio. Não repasso para ninguém.</p>
+      </form>
+    </div>
+
+    <div id="pagamento">
+      <div class="caixa-pagar">
+        <h2>Endereço anotado. Agora é só pagar.</h2>
+        <p>O frete já está incluso. Assim que o pagamento cair, eu posto o livro e te aviso pelo WhatsApp com o código de rastreio.</p>
+        <a class="btn btn-areia" href="https://pag.ae/826bETB7Q" id="botao-pagar">Pagar R$ 37,00 no PagBank</a>
+        <div class="lembrete">Use o <b>mesmo nome</b> que você escreveu aqui na hora do pagamento. É assim que eu ligo o pagamento ao endereço certo.</div>
+      </div>
+      <div class="resumo" id="resumo"></div>
+    </div>
+  </div>
+</main>
+
+<footer>Pr. Felipe Galucio · Marabá, Pará</footer>
+
+<iframe name="destino-entrega" id="destino-entrega" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
+<form id="envio-oculto" action="https://docs.google.com/forms/d/e/1FAIpQLSfMhMzPePZg9VQj4FxSiayqgVcXmoFjDB1et9T-A1n43JNtdg/formResponse" method="POST" target="destino-entrega" style="display:none;">
+  <input type="hidden" name="entry.1461855004" id="h-nome">
+  <input type="hidden" name="entry.1468658901" id="h-email">
+  <input type="hidden" name="entry.1108836016" id="h-zap">
+  <input type="hidden" name="entry.1100623535" id="h-endereco">
+</form>
+
+<script>
+(function(){
+  var form = document.getElementById('entrega');
+  var campos = ['nome','email','zap','cep','rua','numero'];
+
+  campos.forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){
+      this.classList.remove('erro');
+      var r = document.getElementById('erro-' + id);
+      if (r) r.textContent = '';
+    });
+  });
+
+  // ---- CEP: mascara e busca automatica ----
+  var cep = document.getElementById('cep');
+  cep.addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,8);
+    this.value = v.length > 5 ? v.slice(0,5) + '-' + v.slice(5) : v;
+    if (v.length === 8) buscarCep(v);
+  });
+
+  function buscarCep(v){
+    var r = document.getElementById('erro-cep');
+    r.style.color = '#52576a';
+    r.textContent = 'procurando o endereço...';
+    fetch('https://viacep.com.br/ws/' + v + '/json/')
+      .then(function(resp){ return resp.json(); })
+      .then(function(d){
+        r.style.color = '';
+        if (d.erro){ r.textContent = 'CEP não encontrado. Confere o número.'; return; }
+        r.textContent = '';
+        if (d.logradouro) document.getElementById('rua').value = d.logradouro;
+        if (d.bairro) document.getElementById('bairro').value = d.bairro;
+        if (d.localidade) document.getElementById('cidade').value = d.localidade;
+        if (d.uf) document.getElementById('uf').value = d.uf;
+        document.getElementById('numero').focus({preventScroll:true});
+      })
+      .catch(function(){
+        r.style.color = '';
+        r.textContent = 'Não consegui buscar pelo CEP. Preencha o endereço na mão.';
+      });
+  }
+
+  // ---- WhatsApp: mascara simples ----
+  var zap = document.getElementById('zap');
+  zap.addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 6) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    else if (v.length > 2) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    else this.value = v;
+  });
+
+  function falha(id, msg){
+    var el = document.getElementById(id);
+    el.classList.add('erro');
+    var r = document.getElementById('erro-' + id);
+    if (r){ r.style.color=''; r.textContent = msg; }
+    return el;
+  }
+
+  var enviando = false;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var primeiro = null, el;
+
+    if (document.getElementById('nome').value.trim().split(' ').filter(Boolean).length < 2){
+      el = falha('nome','Escreva nome e sobrenome.'); primeiro = primeiro || el;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(document.getElementById('email').value.trim())){
+      el = falha('email','Confere o e-mail, parece incompleto.'); primeiro = primeiro || el;
+    }
+    if (document.getElementById('zap').value.replace(/\D/g,'').length < 10){
+      el = falha('zap','Precisa do DDD e do número.'); primeiro = primeiro || el;
+    }
+    if (document.getElementById('cep').value.replace(/\D/g,'').length !== 8){
+      el = falha('cep','CEP tem 8 números.'); primeiro = primeiro || el;
+    }
+    if (document.getElementById('rua').value.trim().length < 3){
+      el = falha('rua','Falta a rua.'); primeiro = primeiro || el;
+    }
+    if (document.getElementById('numero').value.trim() === ''){
+      el = falha('numero','Falta o número.'); primeiro = primeiro || el;
+    }
+
+    if (primeiro){ primeiro.scrollIntoView({behavior:'smooth', block:'center'}); primeiro.focus({preventScroll:true}); return; }
+
+    var endereco = document.getElementById('rua').value.trim() + ', ' +
+      document.getElementById('numero').value.trim() +
+      (document.getElementById('complemento').value.trim() ? ' - ' + document.getElementById('complemento').value.trim() : '') +
+      ' - ' + document.getElementById('bairro').value.trim() +
+      ' - ' + document.getElementById('cidade').value.trim() + '/' + document.getElementById('uf').value.trim().toUpperCase() +
+      ' - CEP ' + document.getElementById('cep').value.trim();
+
+    document.getElementById('h-nome').value = document.getElementById('nome').value.trim();
+    document.getElementById('h-email').value = document.getElementById('email').value.trim();
+    document.getElementById('h-zap').value = document.getElementById('zap').value.trim();
+    document.getElementById('h-endereco').value = endereco;
+
+    enviando = true;
+    document.getElementById('continuar').textContent = 'Salvando...';
+    document.getElementById('envio-oculto').submit();
+
+    // se o destino nao responder em 4s, segue mesmo assim: ninguem fica preso
+    setTimeout(function(){ if (enviando) liberar(endereco); }, 4000);
+  });
+
+  document.getElementById('destino-entrega').addEventListener('load', function(){
+    if (!enviando) return;
+    liberar(null);
+  });
+
+  function liberar(endereco){
+    if (!enviando) return;
+    enviando = false;
+    if (!endereco) endereco = document.getElementById('h-endereco').value;
+    document.getElementById('resumo').innerHTML =
+      '<b>Vai para:</b> ' + document.getElementById('h-nome').value + '<br>' + endereco +
+      '<br><b>WhatsApp:</b> ' + document.getElementById('h-zap').value +
+      '<br><b>E-mail:</b> ' + document.getElementById('h-email').value;
+    document.getElementById('etapa-endereco').style.display = 'none';
+    var p = document.getElementById('pagamento');
+    p.classList.add('mostrar');
+    p.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+})();
+</script>
+
+</body>
+</html>
