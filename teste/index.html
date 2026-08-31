@@ -437,41 +437,44 @@
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/_QCi8xTbTBc" title="Uma palavra do Pr. Felipe Galucio sobre o seu resultado" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+      <button type="button" class="btn btn-gold btn-wide" id="ver-resultado" style="margin-top:18px;">Ver meu resultado</button>
     </div>
 
-    <div class="placar" id="placar">
-      <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
-      <h2 id="faixa-titulo"></h2>
-      <p id="faixa-texto"></p>
-    </div>
+    <div id="resultado-conteudo" hidden>
+      <div class="placar" id="placar">
+        <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
+        <h2 id="faixa-titulo"></h2>
+        <p id="faixa-texto"></p>
+      </div>
 
-    <div class="socorro" id="socorro" hidden>
-      <b>Antes de qualquer outra coisa:</b> não carregue isso sozinho. Procure alguém maduro fora do ambiente que te confunde — um pastor de outra comunidade, um conselheiro ou um profissional de saúde mental. Se o sofrimento estiver intenso, o CVV atende de graça no 188, 24 horas.
-    </div>
+      <div class="socorro" id="socorro" hidden>
+        <b>Antes de qualquer outra coisa:</b> não carregue isso sozinho. Procure alguém maduro fora do ambiente que te confunde — um pastor de outra comunidade, um conselheiro ou um profissional de saúde mental. Se o sofrimento estiver intenso, o CVV atende de graça no 188, 24 horas.
+      </div>
 
-    <div class="proximo">
-      <div class="eyebrow">Qual é o próximo passo?</div>
-      <h2>Identificar é o começo. Entender é o que liberta.</h2>
-      <p>Este teste ajuda você a dar nome ao que vive. Entender como o abuso religioso se forma, por que ele confunde tanto a consciência cristã e como começar a reconstrução sem abandonar o evangelho é o que eu desenvolvo no e-book.</p>
+      <div class="proximo">
+        <div class="eyebrow">Qual é o próximo passo?</div>
+        <h2>Identificar é o começo. Entender é o que liberta.</h2>
+        <p>Este teste ajuda você a dar nome ao que vive. Entender como o abuso religioso se forma, por que ele confunde tanto a consciência cristã e como começar a reconstrução sem abandonar o evangelho é o que eu desenvolvo no e-book.</p>
 
-      <div class="oferta">
-        <img src="../img/capa.jpg" alt="Capa do e-book Desmascarando o Abuso Religioso">
-        <div>
-          <h3>Desmascarando o Abuso Religioso</h3>
-          <p class="linha">Como se libertar de lideranças narcisistas sem abandonar a fé</p>
-          <a class="btn btn-gold btn-wide" href="../">Conhecer o e-book</a>
+        <div class="oferta">
+          <img src="../img/capa.jpg" alt="Capa do e-book Desmascarando o Abuso Religioso">
+          <div>
+            <h3>Desmascarando o Abuso Religioso</h3>
+            <p class="linha">Como se libertar de lideranças narcisistas sem abandonar a fé</p>
+            <a class="btn btn-gold btn-wide" href="../">Conhecer o e-book</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="nota">
-      <b>Palavra pastoral.</b> Este teste não substitui discernimento, oração nem acompanhamento pastoral ou profissional. Ele serve para você nomear o que sente: sofrimento espiritual recorrente não é parte normal da fé cristã.
-    </div>
+      <div class="nota">
+        <b>Palavra pastoral.</b> Este teste não substitui discernimento, oração nem acompanhamento pastoral ou profissional. Ele serve para você nomear o que sente: sofrimento espiritual recorrente não é parte normal da fé cristã.
+      </div>
 
-    <blockquote>
-      Para a liberdade foi que Cristo nos libertou. Permanecei, pois, firmes e não vos submetais, de novo, a jugo de escravidão.
-      <cite>Gálatas 5.1</cite>
-    </blockquote>
+      <blockquote>
+        Para a liberdade foi que Cristo nos libertou. Permanecei, pois, firmes e não vos submetais, de novo, a jugo de escravidão.
+        <cite>Gálatas 5.1</cite>
+      </blockquote>
+    </div>
   </div>
 </section>
 
@@ -584,6 +587,14 @@
     secaoResultado.classList.add('mostrar');
     secaoResultado.scrollIntoView({behavior:'smooth', block:'start'});
   }
+
+  document.getElementById('ver-resultado').addEventListener('click', function(){
+    var conteudo = document.getElementById('resultado-conteudo');
+    conteudo.hidden = false;
+    this.textContent = 'Resultado liberado ↓';
+    this.disabled = true;
+    conteudo.scrollIntoView({behavior:'smooth', block:'start'});
+  });
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
