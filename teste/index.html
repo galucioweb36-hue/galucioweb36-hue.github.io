@@ -200,6 +200,18 @@
     color:var(--faixa-clara,var(--gold));
   }
   .placar p{margin:0;color:var(--ink-text);max-width:58ch;}
+  .video-pitch{margin-bottom:24px;}
+  .video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--ink);
+    box-shadow:0 24px 48px -22px rgba(20,26,46,0.55);
+  }
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
   .nota{
     background:var(--paper-2);
     border:1px solid var(--paper-line);
@@ -421,6 +433,12 @@
 
 <section id="resultado" aria-live="polite">
   <div class="wrap">
+    <div class="video-pitch">
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/_QCi8xTbTBc" title="Uma palavra do Pr. Felipe Galucio sobre o seu resultado" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
     <div class="placar" id="placar">
       <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
       <h2 id="faixa-titulo"></h2>
