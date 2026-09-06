@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pr. Felipe Galucio</title>
-<meta name="description" content="Links do Pr. Felipe Galucio: teste de abuso religioso, e-book Desmascarando o Abuso Religioso, igreja e redes sociais.">
+<meta name="description" content="Links do Pr. Felipe Galucio: o novo livro Quando a Igreja Mata, os livros O Pedro dos Milagres e RESET, igreja e redes sociais.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600&family=Karla:wght@400;500;600;700&display=swap">
 <style>
   :root{
@@ -108,6 +108,25 @@
     margin-bottom:7px;
   }
 
+  /* em breve (não clicável) */
+  .link.breve{cursor:default;}
+  .link.breve:hover{background:linear-gradient(180deg,#242c4d 0%,#1d2340 100%);}
+  .link.breve:active{transform:none;}
+  .mockup{flex:none;width:66px;height:118px;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(0,0,0,0.7));}
+  .pulso{
+    flex:none;
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 0 rgba(200,147,58,0.55);
+    animation:pulso 2.2s ease-out infinite;
+  }
+  @keyframes pulso{
+    0%{box-shadow:0 0 0 0 rgba(200,147,58,0.55);}
+    70%{box-shadow:0 0 0 12px rgba(200,147,58,0);}
+    100%{box-shadow:0 0 0 0 rgba(200,147,58,0);}
+  }
+
   .capinha{
     flex:none;
     width:46px;
@@ -173,26 +192,23 @@
          o título e o subtítulo. A ordem aqui é a ordem na tela.
          ================================================================ -->
 
-    <li>
-      <a class="link destaque" href="../teste/">
-        <div class="texto">
-          <span class="selo">Comece por aqui</span>
-          <span class="tit">Estou sofrendo abuso religioso?</span>
-          <span class="sub">Teste gratuito de autoavaliação. Dez perguntas, resultado na hora.</span>
-        </div>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-    </li>
+    <!-- ================================================================
+         EM BREVE: quando a pré-venda abrir, troque o <div class="link
+         destaque breve"> por <a class="link destaque"
+         href="../quando-a-igreja-mata/pre-venda/">, feche com </a>,
+         troque o selo pra "Pré-venda aberta" e o texto do subtítulo.
+         ================================================================ -->
 
     <li>
-      <a class="link" href="../">
-        <img class="capinha" src="../img/capa.jpg" alt="">
+      <div class="link destaque breve" aria-label="Quando a Igreja Mata, novo livro, em breve">
+        <img class="mockup" src="../img/mockup-quando-a-igreja-mata.png" alt="Livro Quando a Igreja Mata">
         <div class="texto">
-          <span class="tit">E-book: Desmascarando o Abuso Religioso</span>
-          <span class="sub">Como se libertar de lideranças narcisistas sem abandonar a fé.</span>
+          <span class="selo">Em breve</span>
+          <span class="tit">Quando a Igreja Mata</span>
+          <span class="sub">Meu novo livro sobre abuso religioso e o caminho para a cura. Aguarde: a pré-venda está chegando.</span>
         </div>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
+        <span class="pulso" aria-hidden="true"></span>
+      </div>
     </li>
 
     <li>
