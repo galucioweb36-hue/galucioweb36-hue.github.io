@@ -73,14 +73,23 @@
     max-width:26ch;
   }
   .abertura p{color:var(--claro-dim);max-width:50ch;}
+  .capa-livro{position:relative;}
+  .capa-livro::before{
+    /* halo quente atrás do livro (o mockup tem fundo transparente) */
+    content:"";
+    position:absolute;
+    inset:8% 12%;
+    border-radius:50%;
+    background:radial-gradient(closest-side, rgba(233,178,94,0.22), rgba(233,178,94,0));
+    filter:blur(18px);
+    pointer-events:none;
+  }
   .capa-livro img{
+    position:relative;
     width:100%;
-    max-width:290px;
+    max-width:330px;
     margin:0 auto;
-    border-radius:3px;
-    border:1px solid rgba(243,237,225,0.2);
-    box-shadow:0 44px 78px -26px rgba(0,0,0,0.9), 0 0 110px 26px rgba(233,178,94,0.16);
-    transform:rotate(1.5deg);
+    filter:drop-shadow(0 34px 44px rgba(0,0,0,0.75));
   }
 
   .btn{
@@ -195,7 +204,7 @@
     .abertura{padding:54px 0 60px;}
     .abertura-grade{grid-template-columns:1fr;gap:36px;}
     .capa-livro{order:-1;}
-    .capa-livro img{max-width:205px;}
+    .capa-livro img{max-width:230px;}
     .publico, .capitulos{grid-template-columns:1fr;}
     .autor{grid-template-columns:1fr;text-align:center;gap:20px;}
     .autor img{margin:0 auto;}
@@ -223,7 +232,7 @@
     </div>
 
     <div class="capa-livro">
-      <img src="../img/capa-reset-v2.jpg" alt="Capa do livro RESET, de Felipe Galucio">
+      <img src="../img/mockup-reset.png" alt="Livro RESET, de Felipe Galucio">
     </div>
   </div>
 </div>
