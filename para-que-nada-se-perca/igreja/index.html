@@ -65,15 +65,6 @@
   input.erro{border-color:var(--erro);box-shadow:0 0 0 3px rgba(168,50,31,0.12);}
   .recado{font-size:0.8rem;color:var(--erro);font-weight:600;min-height:1em;}
 
-  .qtd{display:flex;align-items:center;gap:12px;}
-  .qtd button{
-    width:52px;height:52px;flex:none;border-radius:10px;border:1px solid var(--linha);background:#fff;
-    font-size:1.6rem;line-height:1;color:var(--cacau);cursor:pointer;font-family:'Karla',sans-serif;
-  }
-  .qtd button:disabled{opacity:0.35;cursor:default;}
-  .qtd output{font-family:'Playfair Display',serif;font-size:2rem;min-width:2.2ch;text-align:center;}
-  .qtd .total{margin-left:auto;text-align:right;font-size:0.9rem;color:var(--ardosia);}
-  .qtd .total b{display:block;font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--cacau);}
 
   .btn{
     display:block;width:100%;border:0;font-family:'Karla',sans-serif;font-weight:700;
@@ -138,7 +129,7 @@
 
     <div id="etapa-cadastro">
       <div class="aviso">
-        <p>Preencha seus dados e escolha quantos exemplares quer. O pagamento vem logo em seguida, no PagBank.</p>
+        <p>Preencha seus dados. O pagamento vem logo em seguida, no PagBank, e <b>é lá que você escolhe quantos exemplares quer</b>.</p>
         <p>Não tem frete: <b>o livro é retirado em mãos <span class="local-retirada">na tarde de autógrafos, em data a ser avisada, ou depois dela na igreja ou com o Pr. Felipe Galucio</span></b>. Quando ele chegar da gráfica, o aviso chega por e-mail.</p>
       </div>
 
@@ -159,16 +150,6 @@
             <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@exemplo.com">
             <div class="recado" id="erro-email"></div>
           </div>
-          <div class="campo">
-            <label>Quantos exemplares?</label>
-            <div class="qtd">
-              <button type="button" id="menos" aria-label="Menos um">−</button>
-              <output id="quantidade">1</output>
-              <button type="button" id="mais" aria-label="Mais um">+</button>
-              <div class="total">total<b id="total">R$ 55,00</b></div>
-            </div>
-            <div class="recado"></div>
-          </div>
         </div>
         <button class="btn btn-cacau" type="submit" id="continuar">Continuar para o pagamento</button>
         <p class="privacidade">Seus dados servem só para separar o seu livro e te avisar quando ele chegar.</p>
@@ -178,10 +159,10 @@
     <div id="pagamento">
       <div class="caixa-pagar">
         <h2>Agora é só pagar</h2>
-        <p>Guarde o número do seu pedido. Se precisar falar com o Pr. Felipe Galucio sobre ele, é só citar este número.</p>
+        <p>Guarde o número do seu cadastro. Se precisar falar com o Pr. Felipe Galucio sobre o seu pedido, é só citar este número.</p>
         <div class="codigo" id="codigo-pedido"></div>
         <div style="height:20px"></div>
-        <div class="passo-qtd" id="passo-qtd"></div>
+        <div class="passo-qtd mostrar"><b>Quer mais de um livro?</b> No PagBank, toque no lápis ao lado de <b>1 item</b> e escolha a quantidade antes de pagar. Cada exemplar sai por R$ 55,00.</div>
         <a class="btn btn-ouro" href="#" id="botao-pagar" target="_blank" rel="noopener">Pagar no PagBank</a>
         <div class="lembrete">
           Eu confiro os pagamentos uma vez por dia, à noite. A confirmação chega no seu e-mail depois disso, então não estranhe se ela demorar algumas horas.
@@ -206,8 +187,6 @@
 <script>
 (function(){
   // ---- configuracao da pre-venda ----
-  var PRECO = 55;
-  var MAXIMO = 10;
   var FIM = new Date('2026-10-31T23:59:59-03:00');   // horario de Maraba
   var RETIRADA = 'na tarde de autógrafos, em data a ser avisada, ou depois dela na igreja ou com o Pr. Felipe Galucio';
   // um link so: no checkout do PagBank a quantidade muda no lapis ao lado de "1 item"
@@ -220,20 +199,6 @@
     document.getElementById('encerrada').classList.add('mostrar');
     return;
   }
-
-  function reais(v){ return 'R$ ' + v.toFixed(2).replace('.', ','); }
-
-  // ---- quantidade ----
-  var qtd = 1;
-  function atualizar(){
-    document.getElementById('quantidade').textContent = qtd;
-    document.getElementById('total').textContent = reais(qtd * PRECO);
-    document.getElementById('menos').disabled = qtd <= 1;
-    document.getElementById('mais').disabled = qtd >= MAXIMO;
-  }
-  document.getElementById('menos').addEventListener('click', function(){ if (qtd > 1){ qtd--; atualizar(); } });
-  document.getElementById('mais').addEventListener('click', function(){ if (qtd < MAXIMO){ qtd++; atualizar(); } });
-  atualizar();
 
   // ---- WhatsApp: mascara simples ----
   var zap = document.getElementById('zap');
@@ -285,9 +250,9 @@
     document.getElementById('h-nome').value = document.getElementById('nome').value.trim();
     document.getElementById('h-email').value = document.getElementById('email').value.trim();
     document.getElementById('h-zap').value = document.getElementById('zap').value.trim();
-    // o sync.py do VPS le este campo: "QTD n | R$ x | PEDIDO PN-XXXX | RETIRADA"
-    document.getElementById('h-pedido').value =
-      'QTD ' + qtd + ' | ' + reais(qtd * PRECO) + ' | PEDIDO ' + pedido + ' | RETIRADA';
+    // o sync.py do VPS le este campo. A quantidade agora e escolhida no PagBank
+    // (decisao de 18/10/2026) e so entra no sistema quando o extrato chega.
+    document.getElementById('h-pedido').value = 'PEDIDO ' + pedido + ' | RETIRADA | QTD NO PAGAMENTO';
 
     enviando = true;
     document.getElementById('continuar').textContent = 'Salvando...';
@@ -302,18 +267,10 @@
     if (!enviando) return;
     enviando = false;
     var botao = document.getElementById('botao-pagar');
-    botao.textContent = 'Pagar ' + reais(qtd * PRECO) + ' no PagBank';
     botao.href = LINK;
-    var passo = document.getElementById('passo-qtd');
-    if (qtd > 1){
-      passo.innerHTML = '<b>Atenção:</b> o PagBank abre com 1 item. Toque no lápis ao lado de ' +
-        '<b>1 item</b> e mude para <b>' + qtd + '</b>, até o total ficar em <b>' + reais(qtd * PRECO) + '</b>.';
-      passo.classList.add('mostrar');
-    } else { passo.classList.remove('mostrar'); }
-    document.getElementById('codigo-pedido').textContent = 'Pedido ' + pedido;
+    document.getElementById('codigo-pedido').textContent = 'Cadastro ' + pedido;
     document.getElementById('resumo').innerHTML =
-      '<b>' + qtd + (qtd > 1 ? ' exemplares' : ' exemplar') + '</b> · ' + reais(qtd * PRECO) +
-      '<br><b>Nome:</b> ' + document.getElementById('h-nome').value +
+      '<b>Nome:</b> ' + document.getElementById('h-nome').value +
       '<br><b>WhatsApp:</b> ' + document.getElementById('h-zap').value +
       '<br><b>E-mail:</b> ' + document.getElementById('h-email').value +
       '<br><b>Retirada:</b> em mãos, ' + RETIRADA;
