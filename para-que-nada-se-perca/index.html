@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pré-venda · Para que Nada se Perca · devocional 2027</title>
+<meta name="description" content="Para que Nada se Perca: 365 porções da Palavra pregada para o seu dia. Devocional diário de 2027 do Pr. Felipe Galucio, com plano de leitura da Bíblia em um ano. Envio para todo o Brasil.">
+<meta property="og:title" content="Para que Nada se Perca · devocional 2027">
+<meta property="og:description" content="365 porções da Palavra pregada para o seu dia. Um devocional para cada dia de 2027, com a Bíblia inteira em um ano.">
+<meta property="og:image" content="https://galucioweb36-hue.github.io/para-que-nada-se-perca/img/livro-aberto.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --cacau:#2a1d13;
+    --cacau-2:#3b2a1c;
+    --papel:#f4f1ec;
+    --papel-2:#ebe6de;
+    --branco:#fffdf9;
+    --linha:#dcd4c6;
+    --ardosia:#6a5b4a;
+    --ouro:#c8933a;
+    --ouro-escuro:#a8761f;
+    --ouro-claro:#e2b867;
+    --erro:#a8321f;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--papel);color:var(--cacau);
+    font-family:'Karla',ui-sans-serif,system-ui,sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  h1,h2,h3{font-family:'Playfair Display',ui-serif,Georgia,serif;margin:0;text-wrap:balance;line-height:1.2;}
+  p{margin:0 0 16px;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px;}
+  .wrap-largo{max-width:1040px;margin:0 auto;padding:0 22px;}
+  .etiqueta{display:inline-block;font-weight:700;font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ouro-escuro);}
+  section{padding:64px 0;}
+  section h2{font-size:1.85rem;margin:10px 0 18px;}
+  .claro{background:var(--branco);}
+
+  /* ---- topo ---- */
+  .topo{padding:44px 0 56px;background:radial-gradient(90% 70% at 70% 30%, #fffaf1 0%, var(--papel) 70%);}
+  .topo-grade{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;}
+  .topo img{max-width:330px;margin:0 auto;filter:drop-shadow(0 26px 28px rgba(60,40,20,0.28));}
+  .topo h1{font-size:2.7rem;margin:12px 0 10px;}
+  .topo .sub{font-size:1.15rem;color:var(--ardosia);margin-bottom:22px;}
+  .preco{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;}
+  .preco small{font-family:'Karla',sans-serif;font-size:0.95rem;font-weight:500;color:var(--ardosia);margin-left:6px;}
+  .selos{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;padding:0;list-style:none;}
+  .selos li{background:var(--papel-2);border:1px solid var(--linha);border-radius:99px;padding:5px 13px;font-size:0.86rem;color:var(--ardosia);}
+
+  .btn{
+    display:inline-block;border:0;font-family:'Karla',sans-serif;font-weight:700;
+    font-size:1.05rem;padding:17px 30px;border-radius:9px;cursor:pointer;text-align:center;
+    text-decoration:none;transition:background .15s ease, transform .12s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-cacau{background:var(--cacau);color:#fff;}
+  .btn-cacau:hover{background:var(--cacau-2);}
+  .btn-ouro{background:var(--ouro);color:#1e140c;}
+  .btn-ouro:hover{background:var(--ouro-claro);}
+  .btn-cheio{display:block;width:100%;}
+
+  /* ---- historia ---- */
+  .versiculo{
+    font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;line-height:1.5;
+    border-left:3px solid var(--ouro);padding:4px 0 4px 20px;margin:26px 0;
+  }
+  .versiculo cite{display:block;font-family:'Karla',sans-serif;font-style:normal;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ouro-escuro);margin-top:8px;}
+
+  /* ---- por dentro ---- */
+  .aberto{margin:30px auto 10px;width:100%;max-width:min(960px,100%);filter:drop-shadow(0 22px 26px rgba(60,40,20,0.22));}
+  .grade-pagina{display:grid;grid-template-columns:0.9fr 1.1fr;gap:34px;align-items:start;margin-top:34px;}
+  .grade-pagina .pagina{border:1px solid var(--linha);border-radius:4px;box-shadow:0 16px 34px rgba(60,40,20,0.16);background:#fff;}
+  .partes{list-style:none;margin:0;padding:0;counter-reset:p;}
+  .partes li{position:relative;padding:0 0 18px 46px;counter-increment:p;}
+  .partes li::before{
+    content:counter(p);position:absolute;left:0;top:1px;width:30px;height:30px;border-radius:50%;
+    background:var(--cacau);color:var(--ouro-claro);font-weight:700;font-size:0.9rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .partes b{display:block;font-size:1.02rem;}
+  .partes span{color:var(--ardosia);font-size:0.96rem;}
+
+  /* ---- cartoes ---- */
+  .cartoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+  .cartao{background:var(--branco);border:1px solid var(--linha);border-radius:12px;padding:22px 20px;}
+  .cartao h3{font-size:1.15rem;margin-bottom:8px;}
+  .cartao p{margin:0;color:var(--ardosia);font-size:0.95rem;}
+
+  /* ---- ficha tecnica ---- */
+  .ficha{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:var(--branco);margin-top:22px;}
+  .ficha div{padding:14px 18px;border-bottom:1px solid var(--linha);}
+  .ficha div:nth-child(odd){border-right:1px solid var(--linha);}
+  .ficha dt{font-size:0.74rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ardosia);}
+  .ficha dd{margin:2px 0 0;font-weight:600;}
+
+  /* ---- autor ---- */
+  .autor{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:center;}
+  .autor img{border-radius:12px;background:linear-gradient(180deg,#efe2c8,#e2cfa9);}
+
+  /* ---- como funciona ---- */
+  .passos{counter-reset:s;list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px;}
+  .passos li{counter-increment:s;background:var(--branco);border:1px solid var(--linha);border-radius:12px;padding:16px 18px 16px 62px;position:relative;}
+  .passos li::before{content:counter(s);position:absolute;left:18px;top:14px;font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--ouro-escuro);font-weight:700;}
+
+  /* ---- perguntas ---- */
+  details{background:var(--branco);border:1px solid var(--linha);border-radius:10px;padding:14px 18px;margin-bottom:10px;}
+  summary{cursor:pointer;font-weight:700;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';float:right;color:var(--ouro-escuro);font-size:1.2rem;line-height:1;}
+  details[open] summary::after{content:'−';}
+  details p{margin:10px 0 0;color:var(--ardosia);}
+
+  /* ---- pedido ---- */
+  #pedido{background:var(--cacau);color:#f7efe1;}
+  #pedido h2{color:#fff;}
+  #pedido .etiqueta{color:var(--ouro-claro);}
+  .caixa-form{background:var(--branco);color:var(--cacau);border-radius:14px;padding:26px 22px;margin-top:22px;}
+  .resumo-preco{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--linha);padding-bottom:14px;margin-bottom:18px;}
+  .resumo-preco b{font-family:'Playfair Display',serif;font-size:1.5rem;white-space:nowrap;}
+  .campos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .campo{display:flex;flex-direction:column;gap:5px;grid-column:span 6;}
+  .campo.metade{grid-column:span 3;}
+  .campo.dois-tercos{grid-column:span 4;}
+  .campo.terco{grid-column:span 2;}
+  label{font-size:0.76rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ardosia);}
+  input{
+    font-family:'Karla',sans-serif;font-size:1rem;padding:13px 14px;
+    border:1px solid var(--linha);border-radius:8px;background:#fff;color:var(--cacau);width:100%;
+  }
+  input:focus{outline:0;border-color:var(--ouro);box-shadow:0 0 0 3px rgba(200,147,58,0.2);}
+  input.erro{border-color:var(--erro);box-shadow:0 0 0 3px rgba(168,50,31,0.12);}
+  .marcar{display:flex;gap:10px;align-items:center;text-transform:none;letter-spacing:0;font-size:0.95rem;font-weight:600;color:var(--cacau);cursor:pointer;}
+  .marcar input{width:20px;height:20px;accent-color:var(--cacau);}
+  .campo[hidden]{display:none;}
+  .recado{font-size:0.8rem;color:var(--erro);font-weight:600;min-height:1em;}
+  .datas{font-size:0.95rem;color:var(--ardosia);margin:0 0 18px;}
+  .aviso-datas{background:var(--papel-2);border-left:3px solid var(--ouro);border-radius:6px;padding:10px 14px;font-size:0.93rem;color:var(--ardosia);margin:0 0 18px;}
+  [hidden]{display:none !important;}
+  .privacidade{font-size:0.85rem;color:var(--ardosia);margin:14px 0 0;}
+  #pagamento{display:none;}
+  #pagamento.mostrar{display:block;}
+  .codigo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ouro-escuro);letter-spacing:0.05em;margin:6px 0 16px;}
+  .lembrete{background:var(--papel-2);border-radius:8px;padding:14px 16px;margin-top:16px;font-size:0.93rem;color:var(--ardosia);}
+  .resumo{font-size:0.93rem;color:var(--ardosia);margin-top:16px;}
+  .resumo b{color:var(--cacau);}
+
+  footer{background:#1e140c;color:#cdbb9f;padding:24px 0;font-size:0.86rem;text-align:center;}
+  footer a{color:var(--ouro-claro);}
+
+  @media (max-width:760px){
+    section{padding:48px 0;}
+    .topo{padding:26px 0 44px;}
+    .topo-grade,.grade-pagina,.autor{grid-template-columns:1fr;}
+    .topo-texto{text-align:center;}
+    .selos{justify-content:center;}
+    .topo img{max-width:230px;}
+    .topo h1{font-size:2.1rem;}
+    .cartoes{grid-template-columns:1fr;}
+    .ficha{grid-template-columns:1fr;}
+    .ficha div:nth-child(odd){border-right:0;}
+    .autor img{max-width:220px;margin:0 auto;}
+    .preco small{display:block;margin:2px 0 0;}
+    .preco small{display:block;margin:2px 0 0;}
+    .grade-pagina .pagina{max-width:420px;margin:0 auto;}
+    .campo.metade,.campo.dois-tercos,.campo.terco{grid-column:span 6;}
+    .campo.metade.lado{grid-column:span 3;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= TOPO ======================= -->
+<header class="topo">
+  <div class="wrap-largo topo-grade">
+    <img src="img/livro-fechado.webp" width="700" height="1165" alt="Livro Para que Nada se Perca, edição 2027, de Felipe Galucio">
+    <div class="topo-texto">
+      <span class="etiqueta">Pré-venda até 5 de novembro · Edição 2027</span>
+      <h1>Para que Nada se Perca</h1>
+      <p class="sub">365 porções da Palavra pregada para o seu dia, uma para cada dia de 2027, com a Bíblia inteira em um ano.</p>
+      <div class="preco"><span class="valor-preco">R$ 65,00</span> <small>com envio para todo o Brasil</small></div>
+      <ul class="selos">
+        <li>388 páginas</li><li>16 × 23 cm</li><li>Texto bíblico ARA</li><li>Envio pelos Correios</li>
+      </ul>
+      <p class="datas">Pré-venda até <b>5 de novembro</b>. Envios a partir de <b>15 de novembro</b>.</p>
+      <a class="btn btn-cacau" href="#pedido">Quero o meu exemplar</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= HISTORIA ======================= -->
+<section class="claro">
+  <div class="wrap">
+    <span class="etiqueta">De onde veio este livro</span>
+    <h2>Os pedaços que sobraram</h2>
+    <p>Depois de alimentar quase cinco mil pessoas com cinco pães e dois peixinhos, Jesus deu uma ordem que quase passa despercebida no meio do milagre:</p>
+    <div class="versiculo">“Recolhei os pedaços que sobraram, para que nada se perca.”<cite>João 6:12</cite></div>
+    <p>Todo domingo um sermão é servido à igreja depois de dias de estudo e oração. Mas na segunda-feira a vida volta a correr, e boa parte do que foi ouvido fica pelo caminho. Este livro nasceu dessa ordem de Jesus: recolhi os pedaços dos meus sermões e reparti em porções do tamanho de um dia, para que o alimento chegue também à segunda-feira, à quinta à noite e àquela manhã difícil em que ninguém está pregando para você.</p>
+    <p>São 365 devocionais, um para cada dia de 2027. Quando os sermões se esgotaram, segui pelo mesmo caminho que o púlpito sempre segue: as grandes doutrinas das cartas de Paulo, levadas à vida prática, alternadas com a sabedoria dos Salmos, de Provérbios, de Eclesiastes e de Lamentações.</p>
+  </div>
+</section>
+
+<!-- ======================= POR DENTRO ======================= -->
+<section>
+  <div class="wrap-largo">
+    <div class="wrap" style="padding:0">
+      <span class="etiqueta">Por dentro do livro</span>
+      <h2>Uma página por dia, sempre na mesma ordem</h2>
+      <p>Cada devocional ocupa uma página inteira, com tudo o que você precisa para o seu tempo com Deus naquele dia.</p>
+    </div>
+    <img class="aberto" src="img/livro-aberto-recortado.webp" width="1300" height="833" loading="lazy" alt="O livro aberto nas páginas de 1º e 2 de janeiro">
+    <div class="grade-pagina">
+      <img class="pagina" src="img/pagina-1-janeiro.webp" width="900" height="1294" loading="lazy" alt="A página de 1º de janeiro, Cada manhã, uma nova oportunidade">
+      <ol class="partes">
+        <li><b>Leitura da Bíblia em um ano</b><span>No alto da página, um trecho do Antigo Testamento, um do Novo, um Salmo e um Provérbio, com um quadradinho para marcar a leitura feita.</span></li>
+        <li><b>Data, dia da semana e tema</b><span>Feito para o calendário de 2027, com o título do dia.</span></li>
+        <li><b>Texto base</b><span>A passagem bíblica por extenso, na Almeida Revista e Atualizada, para você ler a Palavra antes de qualquer comentário.</span></li>
+        <li><b>Sobre o que fala o texto?</b><span>A passagem entendida no seu contexto, porque um versículo fora do lugar pode dizer o que Deus nunca disse.</span></li>
+        <li><b>Para a sua vida</b><span>A Palavra aplicada ao dia que você tem pela frente.</span></li>
+        <li><b>Para refletir</b><span>Uma pergunta para levar com você e, se quiser, responder por escrito.</span></li>
+        <li><b>Oração</b><span>Uma oração para fazer sua ou usar como ponto de partida para as suas próprias palavras.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DIFERENCIAIS ======================= -->
+<section class="claro">
+  <div class="wrap-largo">
+    <div class="wrap" style="padding:0">
+      <span class="etiqueta">O que você leva</span>
+      <h2>Mais do que um devocional</h2>
+    </div>
+    <div class="cartoes">
+      <div class="cartao"><h3>A Bíblia inteira em 2027</h3><p>Seguindo a faixa do alto de cada página, você lê de Gênesis a Apocalipse até 31 de dezembro, caminhando pelos dois Testamentos ao mesmo tempo.</p></div>
+      <div class="cartao"><h3>O calendário do seu ano</h3><p>Carnaval, Semana Santa e Páscoa, Dia das Mães, Dia dos Pais, Advento e Natal ganharam devocionais próprios, no dia em que caem em 2027.</p></div>
+      <div class="cartao"><h3>Bíblia no centro</h3><p>Explicação antes da aplicação, texto respeitado no seu contexto e linguagem clara, sem promessas que a Bíblia não faz.</p></div>
+      <div class="cartao"><h3>Para ler sozinho</h3><p>Dez minutos por dia, num horário fixo, com um caderno ao lado para responder à pergunta do dia.</p></div>
+      <div class="cartao"><h3>Para ler junto</h3><p>Casais e famílias podem ler a mesma página e conversar sobre a pergunta à mesa.</p></div>
+      <div class="cartao"><h3>Para estudar em grupo</h3><p>Pequenos grupos e células podem escolher um devocional da semana e ler juntos o capítulo de onde saiu o texto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= AUTOR ======================= -->
+<section>
+  <div class="wrap autor">
+    <img src="img/felipe.webp" width="600" height="474" loading="lazy" alt="Pr. Felipe Galucio">
+    <div>
+      <span class="etiqueta">Quem escreveu</span>
+      <h2>Felipe Galucio</h2>
+      <p>Pastor da Nossa Igreja Marabá, no Pará, há mais de vinte anos prega em comunidades por todo o país. É também Tenente-Coronel do Corpo de Bombeiros Militar do Pará, onde comanda o 5º Grupamento Bombeiro Militar.</p>
+      <p>Escreve e fala sobre religiosidade saudável e vida em comunidade para mais de 160 mil pessoas no Instagram, em <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a>. É autor de <i>RESET</i>, <i>O Pedro dos Milagres</i> e <i>Quando a Igreja Mata</i>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FICHA ======================= -->
+<section class="claro">
+  <div class="wrap">
+    <span class="etiqueta">Detalhes</span>
+    <h2>Sobre o exemplar</h2>
+    <dl class="ficha">
+      <div><dt>Formato</dt><dd>16 × 23 cm, brochura com orelhas</dd></div>
+      <div><dt>Páginas</dt><dd>388</dd></div>
+      <div><dt>Conteúdo</dt><dd>365 devocionais e plano de leitura anual</dd></div>
+      <div><dt>Versão bíblica</dt><dd>Almeida Revista e Atualizada</dd></div>
+      <div><dt>Edição</dt><dd>2027</dd></div>
+      <div><dt>ISBN</dt><dd>978-65-02-45045-1</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ======================= COMO FUNCIONA ======================= -->
+<section>
+  <div class="wrap">
+    <span class="etiqueta">Como funciona</span>
+    <h2>Do pedido até a sua casa</h2>
+    <ol class="passos">
+      <li><b>Você preenche nome, WhatsApp e endereço</b> aqui embaixo. Leva menos de um minuto, e o CEP completa a rua sozinho.</li>
+      <li><b>Paga no PagBank</b>, no cartão ou no Pix, num ambiente seguro, informando o seu e-mail.</li>
+      <li><b>Recebe a confirmação por e-mail</b> assim que o pagamento for conferido.</li>
+      <li><b>O livro vai pelos Correios</b>, e o código de rastreio chega no seu e-mail.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= PERGUNTAS ======================= -->
+<section class="claro">
+  <div class="wrap">
+    <span class="etiqueta">Perguntas</span>
+    <h2>Antes de pedir</h2>
+    <details><summary>O frete está incluído?</summary><p>Está. O valor de <span class="valor-preco">R$ 65,00</span> já inclui o envio pelos Correios para qualquer lugar do Brasil.</p></details>
+    <details><summary>Quando o livro chega?</summary><p><span class="prazo-envio">A pré-venda vai até 5 de novembro, e os envios pelos Correios começam a partir de 15 de novembro.</span> Quando o seu livro for postado, o código de rastreio chega no seu e-mail.</p></details>
+    <details><summary>Posso começar depois de janeiro?</summary><p>Pode. Cada página tem a data, então é só começar pelo dia em que você estiver. O plano de leitura também pode ser retomado de qualquer ponto.</p></details>
+    <details><summary>Serve para quem está começando na fé?</summary><p>Serve. A linguagem é clara, cada texto é explicado antes de ser aplicado, e a oração do fim ajuda quem ainda não sabe bem como orar.</p></details>
+    <details><summary>Posso dar de presente?</summary><p>Pode, e é uma ótima ideia para o fim do ano. No formulário, escreva o seu nome, marque que é presente e coloque o nome e o endereço de quem vai receber.</p></details>
+    <details><summary>Como falo com vocês se tiver algum problema?</summary><p>Responda o e-mail de confirmação do seu pedido citando o número do cadastro que aparece depois que você preencher o endereço, ou me chame por mensagem no Instagram, <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a>.</p></details>
+  </div>
+</section>
+
+<!-- ======================= PEDIDO ======================= -->
+<section id="pedido">
+  <div class="wrap">
+    <span class="etiqueta">Pré-venda até 5 de novembro</span>
+    <h2>Para onde enviamos o seu livro?</h2>
+    <p>Preencha seu nome, WhatsApp e o endereço de entrega. O pagamento vem logo em seguida, no PagBank.</p>
+
+    <div class="caixa-form">
+      <div class="resumo-preco"><span>Para que Nada se Perca · Edição 2027</span><b class="valor-preco">R$ 65,00</b></div>
+      <p class="aviso-datas">Pré-venda até 5 de novembro. Os livros são postados a partir de 15 de novembro, e o código de rastreio chega no seu e-mail.</p>
+      <div id="encerrada" hidden><p><b>A pré-venda terminou em 5 de novembro.</b> Obrigado a todos que garantiram o seu exemplar. Fique de olho no Instagram <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a> para as próximas novidades.</p></div>
+
+      <div id="etapa-endereco">
+        <form id="entrega" novalidate>
+          <div class="campos">
+            <div class="campo">
+              <label for="nome">Seu nome completo</label>
+              <input type="text" id="nome" autocomplete="name" placeholder="O mesmo que você vai usar no pagamento">
+              <span class="recado" id="erro-nome"></span>
+            </div>
+            <div class="campo">
+              <label for="zap">WhatsApp com DDD</label>
+              <input type="tel" id="zap" autocomplete="tel" inputmode="numeric" placeholder="(94) 99999-9999">
+              <span class="recado" id="erro-zap"></span>
+            </div>
+            <div class="campo">
+              <label class="marcar"><input type="checkbox" id="presente"> É presente: vou enviar para outra pessoa</label>
+            </div>
+            <div class="campo" id="campo-destinatario" hidden>
+              <label for="destinatario">Nome de quem vai receber</label>
+              <input type="text" id="destinatario" placeholder="Nome completo de quem recebe o livro">
+              <span class="recado" id="erro-destinatario"></span>
+            </div>
+            <div class="campo">
+              <label for="cep">CEP</label>
+              <input type="text" id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="68500-000" maxlength="9">
+              <span class="recado" id="erro-cep"></span>
+            </div>
+            <div class="campo dois-tercos">
+              <label for="rua">Rua / avenida</label>
+              <input type="text" id="rua" autocomplete="address-line1" placeholder="Preenche sozinho pelo CEP">
+              <span class="recado" id="erro-rua"></span>
+            </div>
+            <div class="campo terco">
+              <label for="numero">Número</label>
+              <input type="text" id="numero" inputmode="numeric" placeholder="123">
+              <span class="recado" id="erro-numero"></span>
+            </div>
+            <div class="campo metade">
+              <label for="complemento">Complemento</label>
+              <input type="text" id="complemento" placeholder="Apto, bloco, referência">
+            </div>
+            <div class="campo metade">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" placeholder="Preenche sozinho pelo CEP">
+            </div>
+            <div class="campo dois-tercos">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" placeholder="Preenche sozinho pelo CEP">
+            </div>
+            <div class="campo terco">
+              <label for="uf">Estado</label>
+              <input type="text" id="uf" maxlength="2" placeholder="UF">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-cacau btn-cheio" id="continuar" style="margin-top:22px">Continuar para o pagamento</button>
+          <p class="privacidade">Uso estes dados só para postar o seu livro e te avisar do envio. Não repasso para ninguém.</p>
+        </form>
+      </div>
+
+      <div id="pagamento">
+        <h3 style="font-size:1.4rem">Endereço anotado. Agora é só pagar.</h3>
+        <p style="margin:8px 0 0;color:var(--ardosia)">Guarde o número do seu cadastro. Se precisar falar sobre o pedido, é só citar este número.</p>
+        <div class="codigo" id="codigo-pedido"></div>
+        <a class="btn btn-ouro btn-cheio" href="#" id="botao-pagar" target="_blank" rel="noopener">Pagar <span class="valor-preco">R$ 65,00</span> no PagBank</a>
+        <div class="lembrete">No PagBank, pague com <b>o mesmo nome</b> que você escreveu aqui. É assim que o pagamento é ligado ao seu endereço. Lá você informa o seu e-mail, e é por ele que chegam a confirmação e o código de rastreio.</div>
+        <div class="resumo" id="resumo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Pr. Felipe Galucio · Marabá, Pará · <a href="https://instagram.com/prfelipegalucio">@prfelipegalucio</a></footer>
+
+<iframe name="destino-entrega" id="destino-entrega" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
+<form id="envio-oculto" method="POST" target="destino-entrega" style="display:none;">
+  <input type="hidden" id="h-nome">
+  <input type="hidden" id="h-zap">
+  <input type="hidden" id="h-endereco">
+</form>
+
+<script>
+(function(){
+  // ================= CONFIGURACAO DA VENDA (Instagram, envio pelos Correios) =================
+  var PRECO = 'R$ 65,00';          // frete incluso (definido pelo Felipe em 19/10/2026)
+  var LINK_PAGBANK = 'https://pag.ae/82gfZND6a';   // PagBank de R$ 65 (o Felipe vai trocar por um link que pede so o e-mail)
+  var PRAZO_ENVIO = '';            // o texto das datas ja esta no HTML (pre-venda ate 05/11, envios a partir de 15/11)
+  var FIM = new Date('2026-11-05T23:59:59-03:00');   // fim da pre-venda, horario de Maraba
+  // Formulario do Google que recebe o cadastro (o sync.py do VPS le a planilha dele).
+  // Formulario proprio desta venda (criado pelo VPS em 19/10/2026). NAO usar o da igreja nem o do Pedro.
+  var FORM = {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSf2fZCgKWAM_14dAebRpkeKKgAV_fnH7RQePSJ3GmGRv2GeSg/formResponse',   // "Venda Instagram - Para que Nada se Perca (Correios)"
+    nome: 'entry.1461855004', zap: 'entry.1108836016', endereco: 'entry.1100623535'
+  };
+  // ==========================================================================================
+
+  document.querySelectorAll('.valor-preco').forEach(function(el){ el.textContent = PRECO; });
+  if (PRAZO_ENVIO) document.querySelectorAll('.prazo-envio').forEach(function(el){ el.textContent = PRAZO_ENVIO; });
+  if (new Date() > FIM && location.search.indexOf('teste') < 0){
+    document.getElementById('etapa-endereco').hidden = true;
+    document.querySelector('.aviso-datas').hidden = true;
+    document.getElementById('encerrada').hidden = false;
+    document.querySelectorAll('a[href="#pedido"]').forEach(function(a){ a.textContent = 'Pré-venda encerrada'; });
+  }
+
+  var oculto = document.getElementById('envio-oculto');
+  if (FORM.action){
+    oculto.action = FORM.action;
+    document.getElementById('h-nome').name = FORM.nome;
+    document.getElementById('h-zap').name = FORM.zap;
+    document.getElementById('h-endereco').name = FORM.endereco;
+  }
+
+  var form = document.getElementById('entrega');
+  document.getElementById('presente').addEventListener('change', function(){
+    document.getElementById('campo-destinatario').hidden = !this.checked;
+    if (this.checked) document.getElementById('destinatario').focus();
+  });
+  ['nome','zap','destinatario','cep','rua','numero'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      this.classList.remove('erro');
+      var r = document.getElementById('erro-' + id);
+      if (r) r.textContent = '';
+    });
+  });
+
+  // ---- CEP: mascara e busca automatica (ViaCEP) ----
+  var cep = document.getElementById('cep');
+  cep.addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,8);
+    this.value = v.length > 5 ? v.slice(0,5) + '-' + v.slice(5) : v;
+    if (v.length === 8) buscarCep(v);
+  });
+  function buscarCep(v){
+    var r = document.getElementById('erro-cep');
+    r.style.color = '#6a5b4a';
+    r.textContent = 'procurando o endereço...';
+    fetch('https://viacep.com.br/ws/' + v + '/json/')
+      .then(function(resp){ return resp.json(); })
+      .then(function(d){
+        r.style.color = '';
+        if (d.erro){ r.textContent = 'CEP não encontrado. Confere o número.'; return; }
+        r.textContent = '';
+        if (d.logradouro) document.getElementById('rua').value = d.logradouro;
+        if (d.bairro) document.getElementById('bairro').value = d.bairro;
+        if (d.localidade) document.getElementById('cidade').value = d.localidade;
+        if (d.uf) document.getElementById('uf').value = d.uf;
+        document.getElementById('numero').focus({preventScroll:true});
+      })
+      .catch(function(){
+        r.style.color = '';
+        r.textContent = 'Não consegui buscar pelo CEP. Preencha o endereço na mão.';
+      });
+  }
+
+  // ---- WhatsApp: mascara simples ----
+  document.getElementById('zap').addEventListener('input', function(){
+    var v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 6) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    else if (v.length > 2) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    else this.value = v;
+  });
+
+  function falha(id, msg){
+    var el = document.getElementById(id);
+    el.classList.add('erro');
+    var r = document.getElementById('erro-' + id);
+    if (r){ r.style.color=''; r.textContent = msg; }
+    return el;
+  }
+  function val(id){ return document.getElementById(id).value.trim(); }
+
+  // numero do cadastro: curto, sem letras que se confundem (0/O, 1/I)
+  function codigo(){
+    var a = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = '';
+    for (var i = 0; i < 4; i++) s += a.charAt(Math.floor(Math.random() * a.length));
+    return 'PC-' + s;
+  }
+
+  var enviando = false, pedido = null, endereco = '';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var primeiro = null, el;
+    if (val('nome').split(' ').filter(Boolean).length < 2){ el = falha('nome','Escreva nome e sobrenome.'); primeiro = primeiro || el; }
+    var presente = document.getElementById('presente').checked;
+    if (presente && val('destinatario').split(' ').filter(Boolean).length < 2){ el = falha('destinatario','Escreva nome e sobrenome de quem recebe.'); primeiro = primeiro || el; }
+    if (val('zap').replace(/\D/g,'').length < 10){ el = falha('zap','Precisa do DDD e do número.'); primeiro = primeiro || el; }
+    if (val('cep').replace(/\D/g,'').length !== 8){ el = falha('cep','CEP tem 8 números.'); primeiro = primeiro || el; }
+    if (val('rua').length < 3){ el = falha('rua','Falta a rua.'); primeiro = primeiro || el; }
+    if (val('numero') === ''){ el = falha('numero','Falta o número.'); primeiro = primeiro || el; }
+    if (primeiro){ primeiro.scrollIntoView({behavior:'smooth', block:'center'}); primeiro.focus({preventScroll:true}); return; }
+
+    pedido = codigo();
+    endereco = (presente ? 'PRESENTE PARA ' + val('destinatario') + ' | ' : '') + val('rua') + ', ' + val('numero') +
+      (val('complemento') ? ' - ' + val('complemento') : '') +
+      ' - ' + val('bairro') + ' - ' + val('cidade') + '/' + val('uf').toUpperCase() + ' - CEP ' + val('cep');
+
+    document.getElementById('h-nome').value = val('nome');
+    document.getElementById('h-zap').value = val('zap');
+    // o sync.py do VPS separa o codigo e o tipo de entrega deste campo
+    document.getElementById('h-endereco').value = 'PEDIDO ' + pedido + ' | CORREIO | ' + endereco;
+
+    if (!FORM.action){ liberar(); return; }   // pagina ainda sem formulario: so mostra o passo seguinte
+    enviando = true;
+    document.getElementById('continuar').textContent = 'Salvando...';
+    oculto.submit();
+    // se o Google nao responder em 4s, segue mesmo assim: ninguem fica preso
+    setTimeout(function(){ if (enviando) liberar(); }, 4000);
+  });
+
+  document.getElementById('destino-entrega').addEventListener('load', function(){ if (enviando) liberar(); });
+
+  function liberar(){
+    enviando = false;
+    var botao = document.getElementById('botao-pagar');
+    if (LINK_PAGBANK){ botao.href = LINK_PAGBANK; }
+    else { botao.removeAttribute('href'); botao.style.opacity = '0.55'; botao.textContent = 'Link de pagamento em breve'; }
+    document.getElementById('codigo-pedido').textContent = 'Cadastro ' + pedido;
+    document.getElementById('resumo').innerHTML =
+      '<b>Comprador:</b> ' + val('nome') + '<br><b>WhatsApp:</b> ' + val('zap') +
+      '<br><b>Entrega:</b> ' + endereco.replace('PRESENTE PARA ', 'presente para ').replace(' | ', '<br>');
+    document.getElementById('etapa-endereco').style.display = 'none';
+    var p = document.getElementById('pagamento');
+    p.classList.add('mostrar');
+    p.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+})();
+</script>
+</body>
+</html>
