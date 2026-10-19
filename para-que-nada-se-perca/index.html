@@ -74,7 +74,8 @@
   /* ---- por dentro ---- */
   .aberto{margin:30px auto 10px;width:100%;max-width:min(960px,100%);filter:drop-shadow(0 22px 26px rgba(60,40,20,0.22));}
   .grade-pagina{display:grid;grid-template-columns:0.9fr 1.1fr;gap:34px;align-items:start;margin-top:34px;}
-  .grade-pagina .pagina{border:1px solid var(--linha);border-radius:4px;box-shadow:0 16px 34px rgba(60,40,20,0.16);background:#fff;}
+  .grade-pagina > *{min-width:0;}
+  .grade-pagina .pagina{width:100%;border:1px solid var(--linha);border-radius:4px;box-shadow:0 16px 34px rgba(60,40,20,0.16);background:#fff;}
   .partes{list-style:none;margin:0;padding:0;counter-reset:p;}
   .partes li{position:relative;padding:0 0 18px 46px;counter-increment:p;}
   .partes li::before{
@@ -149,13 +150,36 @@
   .resumo{font-size:0.93rem;color:var(--ardosia);margin-top:16px;}
   .resumo b{color:var(--cacau);}
 
+  /* ---- botoes de compra ao longo da pagina ---- */
+  .cta{text-align:center;margin-top:30px;}
+  .cta .btn{width:100%;max-width:420px;}
+  .cta small{display:block;color:var(--ardosia);font-size:0.84rem;margin-top:8px;}
+  #final{background:var(--cacau);color:#f7efe1;}
+  #final h2{color:#fff;}
+  #final p{color:#e6d9c3;}
+  #final .etiqueta{color:var(--ouro-claro);}
+  #final .btn{width:100%;max-width:420px;}
+  /* ---- barra flutuante ---- */
+  .flutuante{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:rgba(42,29,19,0.97);color:#f7efe1;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    box-shadow:0 -10px 30px rgba(0,0,0,0.18);
+    transform:translateY(110%);transition:transform .25s ease;
+  }
+  .flutuante.mostrar{transform:none;}
+  .flutuante-dentro{max-width:720px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+  .flutuante-texto b{font-family:'Playfair Display',serif;font-size:1.3rem;display:block;line-height:1.1;color:#fff;}
+  .flutuante-texto span{font-size:0.8rem;color:#cdbb9f;}
+  .flutuante .btn{padding:13px 26px;font-size:1rem;}
+  footer{padding-bottom:90px;}
   footer{background:#1e140c;color:#cdbb9f;padding:24px 0;font-size:0.86rem;text-align:center;}
   footer a{color:var(--ouro-claro);}
 
   @media (max-width:760px){
     section{padding:48px 0;}
     .topo{padding:26px 0 44px;}
-    .topo-grade,.grade-pagina,.autor{grid-template-columns:1fr;}
+    .topo-grade,.grade-pagina,.autor{grid-template-columns:minmax(0,1fr);}
     .topo-texto{text-align:center;}
     .selos{justify-content:center;}
     .topo img{max-width:230px;}
@@ -187,7 +211,7 @@
         <li>388 páginas</li><li>16 × 23 cm</li><li>Texto bíblico ARA</li><li>Envio pelos Correios</li>
       </ul>
       <p class="datas">Pré-venda até <b>5 de novembro</b>. Envios a partir de <b>15 de novembro</b>.</p>
-      <a class="btn btn-cacau" href="#pedido">Quero o meu exemplar</a>
+      <a class="btn btn-cacau compra" href="pedido/">Quero o meu exemplar</a>
     </div>
   </div>
 </header>
@@ -201,6 +225,7 @@
     <div class="versiculo">“Recolhei os pedaços que sobraram, para que nada se perca.”<cite>João 6:12</cite></div>
     <p>Todo domingo um sermão é servido à igreja depois de dias de estudo e oração. Mas na segunda-feira a vida volta a correr, e boa parte do que foi ouvido fica pelo caminho. Este livro nasceu dessa ordem de Jesus: recolhi os pedaços dos meus sermões e reparti em porções do tamanho de um dia, para que o alimento chegue também à segunda-feira, à quinta à noite e àquela manhã difícil em que ninguém está pregando para você.</p>
     <p>São 365 devocionais, um para cada dia de 2027. Quando os sermões se esgotaram, segui pelo mesmo caminho que o púlpito sempre segue: as grandes doutrinas das cartas de Paulo, levadas à vida prática, alternadas com a sabedoria dos Salmos, de Provérbios, de Eclesiastes e de Lamentações.</p>
+    <div class="cta"><a class="btn btn-cacau compra" href="pedido/">Quero o meu exemplar · <span class="valor-preco">R$ 65,00</span></a><small>Frete incluso · pré-venda até 5/11 · envios a partir de 15/11</small></div>
   </div>
 </section>
 
@@ -225,6 +250,7 @@
         <li><b>Oração</b><span>Uma oração para fazer sua ou usar como ponto de partida para as suas próprias palavras.</span></li>
       </ol>
     </div>
+    <div class="cta"><a class="btn btn-cacau compra" href="pedido/">Garantir o meu exemplar · <span class="valor-preco">R$ 65,00</span></a><small>Frete incluso · pré-venda até 5/11 · envios a partir de 15/11</small></div>
   </div>
 </section>
 
@@ -243,6 +269,7 @@
       <div class="cartao"><h3>Para ler junto</h3><p>Casais e famílias podem ler a mesma página e conversar sobre a pergunta à mesa.</p></div>
       <div class="cartao"><h3>Para estudar em grupo</h3><p>Pequenos grupos e células podem escolher um devocional da semana e ler juntos o capítulo de onde saiu o texto.</p></div>
     </div>
+    <div class="cta"><a class="btn btn-cacau compra" href="pedido/">Quero começar 2027 com este devocional · <span class="valor-preco">R$ 65,00</span></a><small>Frete incluso · pré-venda até 5/11 · envios a partir de 15/11</small></div>
   </div>
 </section>
 
@@ -256,6 +283,7 @@
       <p>Pastor da Nossa Igreja Marabá, no Pará, há mais de vinte anos prega em comunidades por todo o país. É também Tenente-Coronel do Corpo de Bombeiros Militar do Pará, onde comanda o 5º Grupamento Bombeiro Militar.</p>
       <p>Escreve e fala sobre religiosidade saudável e vida em comunidade para mais de 160 mil pessoas no Instagram, em <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a>. É autor de <i>RESET</i>, <i>O Pedro dos Milagres</i> e <i>Quando a Igreja Mata</i>.</p>
     </div>
+    <div class="cta"><a class="btn btn-cacau compra" href="pedido/">Quero o meu exemplar · <span class="valor-preco">R$ 65,00</span></a><small>Frete incluso · pré-venda até 5/11 · envios a partir de 15/11</small></div>
   </div>
 </section>
 
@@ -281,11 +309,12 @@
     <span class="etiqueta">Como funciona</span>
     <h2>Do pedido até a sua casa</h2>
     <ol class="passos">
-      <li><b>Você preenche nome, WhatsApp e endereço</b> aqui embaixo. Leva menos de um minuto, e o CEP completa a rua sozinho.</li>
+      <li><b>Você toca em “Quero o meu exemplar”</b> e preenche nome, WhatsApp e endereço. Leva menos de um minuto, e o CEP completa a rua sozinho.</li>
       <li><b>Paga no PagBank</b>, no cartão ou no Pix, num ambiente seguro, informando o seu e-mail.</li>
       <li><b>Recebe a confirmação por e-mail</b> assim que o pagamento for conferido.</li>
       <li><b>O livro vai pelos Correios</b>, e o código de rastreio chega no seu e-mail.</li>
     </ol>
+    <div class="cta"><a class="btn btn-cacau compra" href="pedido/">Fazer o meu pedido · <span class="valor-preco">R$ 65,00</span></a><small>Frete incluso · pré-venda até 5/11 · envios a partir de 15/11</small></div>
   </div>
 </section>
 
@@ -303,243 +332,48 @@
   </div>
 </section>
 
-<!-- ======================= PEDIDO ======================= -->
-<section id="pedido">
-  <div class="wrap">
+<!-- ======================= CHAMADA FINAL ======================= -->
+<section id="final">
+  <div class="wrap" style="text-align:center">
     <span class="etiqueta">Pré-venda até 5 de novembro</span>
-    <h2>Para onde enviamos o seu livro?</h2>
-    <p>Preencha seu nome, WhatsApp e o endereço de entrega. O pagamento vem logo em seguida, no PagBank.</p>
-
-    <div class="caixa-form">
-      <div class="resumo-preco"><span>Para que Nada se Perca · Edição 2027</span><b class="valor-preco">R$ 65,00</b></div>
-      <p class="aviso-datas">Pré-venda até 5 de novembro. Os livros são postados a partir de 15 de novembro, e o código de rastreio chega no seu e-mail.</p>
-      <div id="encerrada" hidden><p><b>A pré-venda terminou em 5 de novembro.</b> Obrigado a todos que garantiram o seu exemplar. Fique de olho no Instagram <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a> para as próximas novidades.</p></div>
-
-      <div id="etapa-endereco">
-        <form id="entrega" novalidate>
-          <div class="campos">
-            <div class="campo">
-              <label for="nome">Seu nome completo</label>
-              <input type="text" id="nome" autocomplete="name" placeholder="O mesmo que você vai usar no pagamento">
-              <span class="recado" id="erro-nome"></span>
-            </div>
-            <div class="campo">
-              <label for="zap">WhatsApp com DDD</label>
-              <input type="tel" id="zap" autocomplete="tel" inputmode="numeric" placeholder="(94) 99999-9999">
-              <span class="recado" id="erro-zap"></span>
-            </div>
-            <div class="campo">
-              <label class="marcar"><input type="checkbox" id="presente"> É presente: vou enviar para outra pessoa</label>
-            </div>
-            <div class="campo" id="campo-destinatario" hidden>
-              <label for="destinatario">Nome de quem vai receber</label>
-              <input type="text" id="destinatario" placeholder="Nome completo de quem recebe o livro">
-              <span class="recado" id="erro-destinatario"></span>
-            </div>
-            <div class="campo">
-              <label for="cep">CEP</label>
-              <input type="text" id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="68500-000" maxlength="9">
-              <span class="recado" id="erro-cep"></span>
-            </div>
-            <div class="campo dois-tercos">
-              <label for="rua">Rua / avenida</label>
-              <input type="text" id="rua" autocomplete="address-line1" placeholder="Preenche sozinho pelo CEP">
-              <span class="recado" id="erro-rua"></span>
-            </div>
-            <div class="campo terco">
-              <label for="numero">Número</label>
-              <input type="text" id="numero" inputmode="numeric" placeholder="123">
-              <span class="recado" id="erro-numero"></span>
-            </div>
-            <div class="campo metade">
-              <label for="complemento">Complemento</label>
-              <input type="text" id="complemento" placeholder="Apto, bloco, referência">
-            </div>
-            <div class="campo metade">
-              <label for="bairro">Bairro</label>
-              <input type="text" id="bairro" placeholder="Preenche sozinho pelo CEP">
-            </div>
-            <div class="campo dois-tercos">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" placeholder="Preenche sozinho pelo CEP">
-            </div>
-            <div class="campo terco">
-              <label for="uf">Estado</label>
-              <input type="text" id="uf" maxlength="2" placeholder="UF">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-cacau btn-cheio" id="continuar" style="margin-top:22px">Continuar para o pagamento</button>
-          <p class="privacidade">Uso estes dados só para postar o seu livro e te avisar do envio. Não repasso para ninguém.</p>
-        </form>
-      </div>
-
-      <div id="pagamento">
-        <h3 style="font-size:1.4rem">Endereço anotado. Agora é só pagar.</h3>
-        <p style="margin:8px 0 0;color:var(--ardosia)">Guarde o número do seu cadastro. Se precisar falar sobre o pedido, é só citar este número.</p>
-        <div class="codigo" id="codigo-pedido"></div>
-        <a class="btn btn-ouro btn-cheio" href="#" id="botao-pagar" target="_blank" rel="noopener">Pagar <span class="valor-preco">R$ 65,00</span> no PagBank</a>
-        <div class="lembrete">No PagBank, pague com <b>o mesmo nome</b> que você escreveu aqui. É assim que o pagamento é ligado ao seu endereço. Lá você informa o seu e-mail, e é por ele que chegam a confirmação e o código de rastreio.</div>
-        <div class="resumo" id="resumo"></div>
-      </div>
-    </div>
+    <h2>Comece 2027 com uma porção da Palavra por dia</h2>
+    <p>R$ 65,00 com frete incluso para todo o Brasil. Envios a partir de 15 de novembro.</p>
+    <a class="btn btn-ouro compra" href="pedido/">Quero o meu exemplar</a>
   </div>
 </section>
 
 <footer>Pr. Felipe Galucio · Marabá, Pará · <a href="https://instagram.com/prfelipegalucio">@prfelipegalucio</a></footer>
 
-<iframe name="destino-entrega" id="destino-entrega" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
-<form id="envio-oculto" method="POST" target="destino-entrega" style="display:none;">
-  <input type="hidden" id="h-nome">
-  <input type="hidden" id="h-zap">
-  <input type="hidden" id="h-endereco">
-</form>
+<!-- barra flutuante de compra: aparece depois do topo -->
+<div class="flutuante" id="flutuante" aria-hidden="true">
+  <div class="flutuante-dentro">
+    <div class="flutuante-texto"><b class="valor-preco">R$ 65,00</b><span>frete incluso · pré-venda até 5/11</span></div>
+    <a class="btn btn-ouro compra" href="pedido/" tabindex="-1">Comprar</a>
+  </div>
+</div>
 
 <script>
 (function(){
-  // ================= CONFIGURACAO DA VENDA (Instagram, envio pelos Correios) =================
-  var PRECO = 'R$ 65,00';          // frete incluso (definido pelo Felipe em 19/10/2026)
-  var LINK_PAGBANK = 'https://pag.ae/82gfZND6a';   // PagBank de R$ 65 (o Felipe vai trocar por um link que pede so o e-mail)
-  var PRAZO_ENVIO = '';            // o texto das datas ja esta no HTML (pre-venda ate 05/11, envios a partir de 15/11)
-  var FIM = new Date('2026-11-05T23:59:59-03:00');   // fim da pre-venda, horario de Maraba
-  // Formulario do Google que recebe o cadastro (o sync.py do VPS le a planilha dele).
-  // Formulario proprio desta venda (criado pelo VPS em 19/10/2026). NAO usar o da igreja nem o do Pedro.
-  var FORM = {
-    action: 'https://docs.google.com/forms/d/e/1FAIpQLSf2fZCgKWAM_14dAebRpkeKKgAV_fnH7RQePSJ3GmGRv2GeSg/formResponse',   // "Venda Instagram - Para que Nada se Perca (Correios)"
-    nome: 'entry.1461855004', zap: 'entry.1108836016', endereco: 'entry.1100623535'
-  };
-  // ==========================================================================================
-
+  var PRECO = 'R$ 65,00';                              // frete incluso (definido pelo Felipe em 19/10/2026)
+  var FIM = new Date('2026-11-05T23:59:59-03:00');     // fim da pre-venda, horario de Maraba
   document.querySelectorAll('.valor-preco').forEach(function(el){ el.textContent = PRECO; });
-  if (PRAZO_ENVIO) document.querySelectorAll('.prazo-envio').forEach(function(el){ el.textContent = PRAZO_ENVIO; });
   if (new Date() > FIM && location.search.indexOf('teste') < 0){
-    document.getElementById('etapa-endereco').hidden = true;
-    document.querySelector('.aviso-datas').hidden = true;
-    document.getElementById('encerrada').hidden = false;
-    document.querySelectorAll('a[href="#pedido"]').forEach(function(a){ a.textContent = 'Pré-venda encerrada'; });
+    document.querySelectorAll('a.compra').forEach(function(a){ a.textContent = 'Pré-venda encerrada'; a.removeAttribute('href'); a.style.opacity = '0.55'; });
+    document.getElementById('flutuante').remove();
+    return;
   }
-
-  var oculto = document.getElementById('envio-oculto');
-  if (FORM.action){
-    oculto.action = FORM.action;
-    document.getElementById('h-nome').name = FORM.nome;
-    document.getElementById('h-zap').name = FORM.zap;
-    document.getElementById('h-endereco').name = FORM.endereco;
+  // a barra flutuante aparece quando o topo sai da tela e some na chamada final
+  var barra = document.getElementById('flutuante');
+  var topo = document.querySelector('.topo'), final = document.getElementById('final');
+  var topoVisivel = true, finalVisivel = false;
+  function atualizar(){
+    var mostrar = !topoVisivel && !finalVisivel;
+    barra.classList.toggle('mostrar', mostrar);
+    barra.setAttribute('aria-hidden', mostrar ? 'false' : 'true');
+    barra.querySelector('a').tabIndex = mostrar ? 0 : -1;
   }
-
-  var form = document.getElementById('entrega');
-  document.getElementById('presente').addEventListener('change', function(){
-    document.getElementById('campo-destinatario').hidden = !this.checked;
-    if (this.checked) document.getElementById('destinatario').focus();
-  });
-  ['nome','zap','destinatario','cep','rua','numero'].forEach(function(id){
-    document.getElementById(id).addEventListener('input', function(){
-      this.classList.remove('erro');
-      var r = document.getElementById('erro-' + id);
-      if (r) r.textContent = '';
-    });
-  });
-
-  // ---- CEP: mascara e busca automatica (ViaCEP) ----
-  var cep = document.getElementById('cep');
-  cep.addEventListener('input', function(){
-    var v = this.value.replace(/\D/g,'').slice(0,8);
-    this.value = v.length > 5 ? v.slice(0,5) + '-' + v.slice(5) : v;
-    if (v.length === 8) buscarCep(v);
-  });
-  function buscarCep(v){
-    var r = document.getElementById('erro-cep');
-    r.style.color = '#6a5b4a';
-    r.textContent = 'procurando o endereço...';
-    fetch('https://viacep.com.br/ws/' + v + '/json/')
-      .then(function(resp){ return resp.json(); })
-      .then(function(d){
-        r.style.color = '';
-        if (d.erro){ r.textContent = 'CEP não encontrado. Confere o número.'; return; }
-        r.textContent = '';
-        if (d.logradouro) document.getElementById('rua').value = d.logradouro;
-        if (d.bairro) document.getElementById('bairro').value = d.bairro;
-        if (d.localidade) document.getElementById('cidade').value = d.localidade;
-        if (d.uf) document.getElementById('uf').value = d.uf;
-        document.getElementById('numero').focus({preventScroll:true});
-      })
-      .catch(function(){
-        r.style.color = '';
-        r.textContent = 'Não consegui buscar pelo CEP. Preencha o endereço na mão.';
-      });
-  }
-
-  // ---- WhatsApp: mascara simples ----
-  document.getElementById('zap').addEventListener('input', function(){
-    var v = this.value.replace(/\D/g,'').slice(0,11);
-    if (v.length > 6) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
-    else if (v.length > 2) this.value = '(' + v.slice(0,2) + ') ' + v.slice(2);
-    else this.value = v;
-  });
-
-  function falha(id, msg){
-    var el = document.getElementById(id);
-    el.classList.add('erro');
-    var r = document.getElementById('erro-' + id);
-    if (r){ r.style.color=''; r.textContent = msg; }
-    return el;
-  }
-  function val(id){ return document.getElementById(id).value.trim(); }
-
-  // numero do cadastro: curto, sem letras que se confundem (0/O, 1/I)
-  function codigo(){
-    var a = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = '';
-    for (var i = 0; i < 4; i++) s += a.charAt(Math.floor(Math.random() * a.length));
-    return 'PC-' + s;
-  }
-
-  var enviando = false, pedido = null, endereco = '';
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var primeiro = null, el;
-    if (val('nome').split(' ').filter(Boolean).length < 2){ el = falha('nome','Escreva nome e sobrenome.'); primeiro = primeiro || el; }
-    var presente = document.getElementById('presente').checked;
-    if (presente && val('destinatario').split(' ').filter(Boolean).length < 2){ el = falha('destinatario','Escreva nome e sobrenome de quem recebe.'); primeiro = primeiro || el; }
-    if (val('zap').replace(/\D/g,'').length < 10){ el = falha('zap','Precisa do DDD e do número.'); primeiro = primeiro || el; }
-    if (val('cep').replace(/\D/g,'').length !== 8){ el = falha('cep','CEP tem 8 números.'); primeiro = primeiro || el; }
-    if (val('rua').length < 3){ el = falha('rua','Falta a rua.'); primeiro = primeiro || el; }
-    if (val('numero') === ''){ el = falha('numero','Falta o número.'); primeiro = primeiro || el; }
-    if (primeiro){ primeiro.scrollIntoView({behavior:'smooth', block:'center'}); primeiro.focus({preventScroll:true}); return; }
-
-    pedido = codigo();
-    endereco = (presente ? 'PRESENTE PARA ' + val('destinatario') + ' | ' : '') + val('rua') + ', ' + val('numero') +
-      (val('complemento') ? ' - ' + val('complemento') : '') +
-      ' - ' + val('bairro') + ' - ' + val('cidade') + '/' + val('uf').toUpperCase() + ' - CEP ' + val('cep');
-
-    document.getElementById('h-nome').value = val('nome');
-    document.getElementById('h-zap').value = val('zap');
-    // o sync.py do VPS separa o codigo e o tipo de entrega deste campo
-    document.getElementById('h-endereco').value = 'PEDIDO ' + pedido + ' | CORREIO | ' + endereco;
-
-    if (!FORM.action){ liberar(); return; }   // pagina ainda sem formulario: so mostra o passo seguinte
-    enviando = true;
-    document.getElementById('continuar').textContent = 'Salvando...';
-    oculto.submit();
-    // se o Google nao responder em 4s, segue mesmo assim: ninguem fica preso
-    setTimeout(function(){ if (enviando) liberar(); }, 4000);
-  });
-
-  document.getElementById('destino-entrega').addEventListener('load', function(){ if (enviando) liberar(); });
-
-  function liberar(){
-    enviando = false;
-    var botao = document.getElementById('botao-pagar');
-    if (LINK_PAGBANK){ botao.href = LINK_PAGBANK; }
-    else { botao.removeAttribute('href'); botao.style.opacity = '0.55'; botao.textContent = 'Link de pagamento em breve'; }
-    document.getElementById('codigo-pedido').textContent = 'Cadastro ' + pedido;
-    document.getElementById('resumo').innerHTML =
-      '<b>Comprador:</b> ' + val('nome') + '<br><b>WhatsApp:</b> ' + val('zap') +
-      '<br><b>Entrega:</b> ' + endereco.replace('PRESENTE PARA ', 'presente para ').replace(' | ', '<br>');
-    document.getElementById('etapa-endereco').style.display = 'none';
-    var p = document.getElementById('pagamento');
-    p.classList.add('mostrar');
-    p.scrollIntoView({behavior:'smooth', block:'start'});
-  }
+  new IntersectionObserver(function(e){ topoVisivel = e[0].isIntersecting; atualizar(); }).observe(topo);
+  new IntersectionObserver(function(e){ finalVisivel = e[0].isIntersecting; atualizar(); }).observe(final);
 })();
 </script>
 </body>
