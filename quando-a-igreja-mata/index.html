@@ -106,7 +106,20 @@
   .duvidas h3{font-size:1.08rem;font-weight:600;margin:22px 0 6px;}
   .duvidas p{font-size:0.96rem;}
 
-  footer{background:var(--ink);color:var(--ink-text-dim);padding:24px 0;font-size:0.85rem;text-align:center;}
+  footer{background:var(--ink);color:var(--ink-text-dim);padding:24px 0 96px;font-size:0.85rem;text-align:center;}
+
+  /* barra de compra que acompanha a leitura; some no topo e no cadastro */
+  .flutuante{
+    position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:rgba(20,26,46,0.97);border-top:1px solid var(--ink-line);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    transform:translateY(110%);transition:transform .25s ease;
+  }
+  .flutuante.mostrar{transform:none;}
+  .flutuante .linha{max-width:660px;margin:0 auto;display:flex;align-items:center;gap:16px;}
+  .flutuante .preco{color:#fff;font-family:'Fraunces',serif;font-size:1.25rem;white-space:nowrap;}
+  .flutuante .preco small{display:block;font-family:'Karla',sans-serif;font-size:0.74rem;color:var(--ink-text-dim);}
+  .flutuante .btn{padding:14px 18px;font-size:1rem;}
   footer a{color:var(--ink-text);text-decoration:none;}
 
   @media (max-width:620px){
@@ -122,7 +135,7 @@
 </head>
 <body>
 
-<div class="topo">
+<div class="topo" id="topo">
   <div class="wrap">
     <img src="../img/mockup-quando-a-igreja-mata.png" alt="Capa do livro Quando a Igreja Mata">
     <div class="etiqueta">Livro digital</div>
@@ -241,6 +254,13 @@
 
 <footer><a href="https://instagram.com/prfelipegalucio">Pr. Felipe Galucio · @prfelipegalucio</a></footer>
 
+<div class="flutuante" id="flutuante">
+  <div class="linha">
+    <div class="preco">R$ 29,90<small>PDF e EPUB no e-mail</small></div>
+    <a class="btn btn-gold" href="#cadastro">Quero o livro</a>
+  </div>
+</div>
+
 <iframe name="destino-cadastro" id="destino-cadastro" title="destino do formulário" style="display:none;width:0;height:0;border:0;"></iframe>
 <form id="envio-oculto" action="https://docs.google.com/forms/d/e/1FAIpQLSdVKwJnTCLvA0q1IihiPP1kcibJIJGzTOyLMAckU-xIwnG5uw/formResponse" method="POST" target="destino-cadastro" style="display:none;">
   <input type="hidden" name="entry.1461855004" id="h-nome">
@@ -252,6 +272,21 @@
 <script>
 (function(){
   var CHAVE_CONTATO = 'galucio-contato';   // gravada pela pagina do teste
+
+  // barra flutuante: aparece depois do topo e some quando o cadastro esta na tela
+  var barra = document.getElementById('flutuante');
+  var topo = document.getElementById('topo');
+  var cadastro = document.getElementById('cadastro');
+  function posicionarBarra(){
+    var alto = window.innerHeight;
+    var passouTopo = topo.getBoundingClientRect().bottom < 0;
+    var c = cadastro.getBoundingClientRect();
+    var noCadastro = c.top < alto && c.bottom > 0;
+    barra.classList.toggle('mostrar', passouTopo && !noCadastro);
+  }
+  window.addEventListener('scroll', posicionarBarra, {passive:true});
+  window.addEventListener('resize', posicionarBarra);
+  posicionarBarra();
 
   // quem veio do teste ja deixou nome, e-mail e WhatsApp: preenche pra ela
   try {

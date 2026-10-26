@@ -132,12 +132,8 @@
 
   /* ---------- barra de progresso ---------- */
   .barra{
-    position:sticky;
-    bottom:0;
-    background:rgba(246,243,236,0.94);
-    backdrop-filter:blur(6px);
     border-top:1px solid var(--paper-line);
-    padding:14px 0 16px;
+    padding:22px 0 30px;
     margin-top:8px;
   }
   .barra-linha{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
@@ -211,10 +207,6 @@
     box-shadow:0 24px 48px -22px rgba(20,26,46,0.55);
   }
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-frame.vertical{aspect-ratio:9/16;max-width:340px;margin:0 auto;}
-  .recado-video{padding:40px 0 4px;text-align:center;}
-  .recado-video .eyebrow{margin-bottom:14px;}
-  .recado-video .btn{max-width:340px;margin:20px auto 0;}
 
   .nota{
     background:var(--paper-2);
@@ -367,18 +359,6 @@
 </head>
 <body>
 
-<!-- Recado de 1 minuto antes do teste. Fica escondido ate o video existir:
-     cole o id do YouTube em data-video (ex.: data-video="_QCi8xTbTBc"). -->
-<section class="recado-video" id="recado-video" data-video="" hidden>
-  <div class="wrap">
-    <div class="eyebrow">Um recado rápido antes do teste</div>
-    <div class="video-frame vertical">
-      <iframe id="video-intro" title="Recado do Pr. Felipe Galucio antes do teste" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <a class="btn btn-gold btn-wide" href="#perguntas">Fazer o teste agora</a>
-  </div>
-</section>
-
 <div class="topo">
   <div class="wrap">
     <div class="eyebrow">Teste de autoavaliação</div>
@@ -449,14 +429,7 @@
 
 <section id="resultado" aria-live="polite">
   <div class="wrap">
-    <div class="video-pitch">
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/_QCi8xTbTBc" title="Uma palavra do Pr. Felipe Galucio sobre o seu resultado" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <button type="button" class="btn btn-gold btn-wide" id="ver-resultado" style="margin-top:18px;">Ver meu resultado</button>
-    </div>
-
-    <div id="resultado-conteudo" hidden>
+    <div id="resultado-conteudo">
       <div class="placar" id="placar">
         <div><span class="pontos" id="pontos">0</span><span class="de">de 30 pontos</span></div>
         <h2 id="faixa-titulo"></h2>
@@ -604,14 +577,6 @@
     secaoResultado.scrollIntoView({behavior:'smooth', block:'start'});
   }
 
-  document.getElementById('ver-resultado').addEventListener('click', function(){
-    var conteudo = document.getElementById('resultado-conteudo');
-    conteudo.hidden = false;
-    this.textContent = 'Resultado liberado ↓';
-    this.disabled = true;
-    conteudo.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var primeiraFalta = null;
@@ -699,12 +664,6 @@
     enviando = false;
     mostrarResultado();
   });
-
-  var recado = document.getElementById('recado-video');
-  if (recado.dataset.video){
-    document.getElementById('video-intro').src = 'https://www.youtube-nocookie.com/embed/' + recado.dataset.video;
-    recado.hidden = false;
-  }
 
   atualizar();
 })();

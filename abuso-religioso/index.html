@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste de abuso religioso · Pr. Felipe Galucio</title>
+<meta name="description" content="Um recado rápido do Pr. Felipe Galucio e o teste de autoavaliação: como saber se estou sofrendo abuso religioso?">
+<meta property="og:title" content="Como saber se estou sofrendo abuso religioso?">
+<meta property="og:description" content="Teste de autoavaliação com dez perguntas, do Pr. Felipe Galucio.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Karla:wght@400;700&display=swap">
+<style>
+  :root{
+    --ink:#141a2e;
+    --ink-text:#ece8dd;
+    --ink-text-dim:#a8adc4;
+    --gold:#c8933a;
+    --gold-deep:#9c6f24;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;min-height:100vh;background:var(--ink);color:var(--ink-text);
+    font-family:'Karla',ui-sans-serif,system-ui,sans-serif;font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:420px;margin:0 auto;padding:36px 16px 44px;text-align:center;}
+  .etiqueta{font-weight:700;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);}
+  h1{font-family:'Fraunces',ui-serif,Georgia,serif;font-weight:600;font-size:1.6rem;line-height:1.25;color:#fff;margin:10px 0 22px;text-wrap:balance;}
+  .video{position:relative;width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#0c1020;box-shadow:0 26px 50px -24px rgba(0,0,0,0.8);}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .sem-video{color:var(--ink-text-dim);margin:0 0 6px;}
+  .btn{
+    display:block;width:100%;margin-top:22px;padding:18px 26px;border-radius:8px;
+    background:var(--gold-deep);color:#fff;font-weight:700;font-size:1.08rem;text-decoration:none;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--gold);}
+  .nota{font-size:0.86rem;color:var(--ink-text-dim);margin:12px 0 0;}
+  .recomenda{color:var(--ink-text);margin:-8px 0 20px;}
+  .espera{font-size:0.92rem;color:var(--ink-text-dim);margin:18px 0 0;}
+  #acesso.chegou{animation:chegar .45s ease;}
+  @keyframes chegar{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .video iframe, #player{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  footer{font-size:0.82rem;color:var(--ink-text-dim);text-align:center;padding:0 16px 28px;}
+  footer a{color:var(--ink-text-dim);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- O video de 1 minuto entra aqui: cole o id do YouTube em data-video
+     (ex.: data-video="abc123XYZ"). Vazio, a pagina mostra so o convite e o botao. -->
+<main class="wrap" id="pagina" data-video="">
+  <div class="etiqueta">Teste de autoavaliação</div>
+  <h1>Antes do teste, um recado rápido</h1>
+  <p class="recomenda" id="recomenda" hidden>Recomendo que você assista a este vídeo de um minuto antes de responder. Nele eu explico o teste e deixo um recado importante para você.</p>
+  <div class="video" id="video" hidden>
+    <div id="player"></div>
+  </div>
+  <p class="sem-video" id="sem-video">São dez perguntas para você refletir com honestidade sobre a sua experiência na igreja. Leva cerca de três minutos.</p>
+  <p class="espera" id="espera" hidden>Assista ao recado: o botão do teste aparece aqui embaixo.</p>
+  <div id="acesso">
+    <a class="btn" href="../teste/">Fazer o teste agora</a>
+    <p class="nota">Dez perguntas · cerca de três minutos</p>
+  </div>
+</main>
+
+<footer><a href="https://instagram.com/prfelipegalucio">Pr. Felipe Galucio · @prfelipegalucio</a></footer>
+
+<script>
+(function(){
+  var LIMIAR = 0.7;                       // o botao aparece com 70% do video assistido
+  var pagina = document.getElementById('pagina');
+  var acesso = document.getElementById('acesso');
+  var espera = document.getElementById('espera');
+  var id = pagina.dataset.video;
+  if (!id) return;                        // sem video: botao aparece direto
+
+  document.getElementById('video').hidden = false;
+  document.getElementById('recomenda').hidden = false;
+  document.getElementById('sem-video').hidden = true;
+  acesso.hidden = true;
+  espera.hidden = false;
+
+  var liberado = false;
+  function liberar(){
+    if (liberado) return;
+    liberado = true;
+    espera.hidden = true;
+    acesso.hidden = false;
+    acesso.classList.add('chegou');
+  }
+
+  // se o YouTube nao carregar (rede ruim, bloqueio), ninguem fica preso fora do teste
+  var reserva = setTimeout(liberar, 10000);
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  tag.onerror = liberar;
+  document.head.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = function(){
+    var vigia = null;
+    var player = window.playerRecado = new YT.Player('player', {
+      host: 'https://www.youtube-nocookie.com',
+      videoId: id,
+      width: '100%', height: '100%',
+      playerVars: {playsinline: 1, rel: 0, modestbranding: 1},
+      events: {
+        onReady: function(){ clearTimeout(reserva); },
+        onError: liberar,
+        onStateChange: function(e){
+          if (e.data === YT.PlayerState.ENDED){ liberar(); return; }
+          if (e.data === YT.PlayerState.PLAYING && !vigia){
+            vigia = setInterval(function(){
+              var d = player.getDuration();
+              if (d && player.getCurrentTime() / d >= LIMIAR){ clearInterval(vigia); liberar(); }
+            }, 500);
+          }
+        }
+      }
+    });
+  };
+})();
+</script>
+
+</body>
+</html>
