@@ -211,6 +211,10 @@
     box-shadow:0 24px 48px -22px rgba(20,26,46,0.55);
   }
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-frame.vertical{aspect-ratio:9/16;max-width:340px;margin:0 auto;}
+  .recado-video{padding:40px 0 4px;text-align:center;}
+  .recado-video .eyebrow{margin-bottom:14px;}
+  .recado-video .btn{max-width:340px;margin:20px auto 0;}
 
   .nota{
     background:var(--paper-2);
@@ -363,6 +367,18 @@
 </head>
 <body>
 
+<!-- Recado de 1 minuto antes do teste. Fica escondido ate o video existir:
+     cole o id do YouTube em data-video (ex.: data-video="_QCi8xTbTBc"). -->
+<section class="recado-video" id="recado-video" data-video="" hidden>
+  <div class="wrap">
+    <div class="eyebrow">Um recado rápido antes do teste</div>
+    <div class="video-frame vertical">
+      <iframe id="video-intro" title="Recado do Pr. Felipe Galucio antes do teste" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <a class="btn btn-gold btn-wide" href="#perguntas">Fazer o teste agora</a>
+  </div>
+</section>
+
 <div class="topo">
   <div class="wrap">
     <div class="eyebrow">Teste de autoavaliação</div>
@@ -448,20 +464,20 @@
       </div>
 
       <div class="socorro" id="socorro" hidden>
-        <b>Antes de qualquer outra coisa:</b> não carregue isso sozinho. Procure alguém maduro fora do ambiente que te confunde — um pastor de outra comunidade, um conselheiro ou um profissional de saúde mental. Se o sofrimento estiver intenso, o CVV atende de graça no 188, 24 horas.
+        <b>Antes de qualquer outra coisa:</b> não carregue isso sozinho. Procure alguém maduro fora do ambiente que te confunde: um pastor de outra comunidade, um conselheiro ou um profissional de saúde mental. Se o sofrimento estiver intenso, o CVV atende de graça no 188, 24 horas.
       </div>
 
       <div class="proximo">
         <div class="eyebrow">Qual é o próximo passo?</div>
         <h2>Identificar é o começo. Entender é o que liberta.</h2>
-        <p>Este teste ajuda você a dar nome ao que vive. Entender como o abuso religioso se forma, por que ele confunde tanto a consciência cristã e como começar a reconstrução sem abandonar o evangelho é o que eu desenvolvo no e-book.</p>
+        <p>Este teste ajuda você a dar nome ao que vive. Entender como o abuso religioso se forma, por que ele confunde tanto a consciência cristã e como começar a reconstrução sem abandonar o evangelho é o que eu desenvolvo no livro.</p>
 
         <div class="oferta">
-          <img src="../img/capa.jpg" alt="Capa do e-book Desmascarando o Abuso Religioso">
+          <img src="../img/mockup-quando-a-igreja-mata.png" alt="Capa do livro Quando a Igreja Mata">
           <div>
-            <h3>Desmascarando o Abuso Religioso</h3>
-            <p class="linha">Como se libertar de lideranças narcisistas sem abandonar a fé</p>
-            <a class="btn btn-gold btn-wide" href="../">Conhecer o e-book</a>
+            <h3>Quando a Igreja Mata</h3>
+            <p class="linha">Desmascarando o abuso religioso e construindo um caminho para a cura</p>
+            <a class="btn btn-gold btn-wide" href="../quando-a-igreja-mata/">Conhecer o livro</a>
           </div>
         </div>
       </div>
@@ -668,6 +684,12 @@
       return;
     }
 
+    // a pagina do livro le isto para nao pedir os mesmos dados de novo
+    try {
+      localStorage.setItem('galucio-contato', JSON.stringify(
+        {nome:nome.value.trim(), email:email.value.trim(), zap:zap.value.trim()}));
+    } catch(err){}
+
     enviando = true;
     document.getElementById('enviar-contato').textContent = 'Abrindo seu resultado...';
   });
@@ -677,6 +699,12 @@
     enviando = false;
     mostrarResultado();
   });
+
+  var recado = document.getElementById('recado-video');
+  if (recado.dataset.video){
+    document.getElementById('video-intro').src = 'https://www.youtube-nocookie.com/embed/' + recado.dataset.video;
+    recado.hidden = false;
+  }
 
   atualizar();
 })();
