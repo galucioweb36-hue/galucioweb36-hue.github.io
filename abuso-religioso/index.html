@@ -40,6 +40,8 @@
   .espera{font-size:0.92rem;color:var(--ink-text-dim);margin:18px 0 0;}
   #acesso.chegou{animation:chegar .45s ease;}
   @keyframes chegar{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .som{position:absolute;left:50%;bottom:18%;transform:translateX(-50%);z-index:2;border:0;border-radius:99px;padding:14px 22px;background:rgba(20,26,46,0.88);color:#fff;font-family:'Karla',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,0.45);animation:pulsar 1.6s ease-in-out infinite;}
+  @keyframes pulsar{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.06);}}
   .video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0c1020;}
   footer{font-size:0.82rem;color:var(--ink-text-dim);text-align:center;padding:0 16px 28px;}
   footer a{color:var(--ink-text-dim);text-decoration:none;}
@@ -55,7 +57,8 @@
   <h1>Antes do teste, um recado rápido</h1>
   <p class="recomenda" id="recomenda" hidden>Recomendo que você assista a este vídeo de um minuto antes de responder. Nele eu explico o teste e deixo um recado importante para você.</p>
   <div class="video" id="video" hidden>
-    <video id="player" controls playsinline preload="metadata"></video>
+    <video id="player" playsinline muted autoplay preload="auto"></video>
+    <button type="button" class="som" id="som">🔊 Toque para ouvir</button>
   </div>
   <p class="sem-video" id="sem-video">São dez perguntas para você refletir com honestidade sobre a sua experiência na igreja. Leva cerca de três minutos.</p>
   <p class="espera" id="espera" hidden>Assista ao recado: o botão do teste aparece aqui embaixo.</p>
@@ -94,6 +97,18 @@
   var video = document.getElementById('player');
   if (pagina.dataset.poster) video.poster = pagina.dataset.poster;
   video.src = id;
+  // celular so deixa tocar sozinho sem som: comeca mudo e o toque liga o som do inicio
+  var som = document.getElementById('som');
+  var tentar = video.play();
+  if (tentar && tentar.catch) tentar.catch(function(){ video.controls = true; });
+  som.addEventListener('click', function(){
+    video.muted = false;
+    video.currentTime = 0;
+    video.controls = true;
+    video.play();
+    som.remove();
+  });
+  video.addEventListener('click', function(){ if (video.muted) som.click(); });
   // se o video nao carregar (rede ruim, formato), ninguem fica preso fora do teste
   video.addEventListener('error', liberar);
   video.addEventListener('ended', liberar);
