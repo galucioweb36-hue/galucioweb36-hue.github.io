@@ -200,14 +200,13 @@
 <!-- ======================= PEDIDO ======================= -->
 <section id="pedido">
   <div class="wrap">
-    <span class="etiqueta">Pré-venda até 5 de novembro</span>
+    <span class="etiqueta">Pré-venda</span>
     <h1 style="font-size:1.9rem;margin:10px 0 14px">Para onde enviamos o seu livro?</h1>
     <p>Preencha seu nome, WhatsApp e o endereço de entrega. O pagamento vem logo em seguida, no PagBank.</p>
 
     <div class="caixa-form">
       <div class="resumo-preco"><span>Para que Nada se Perca</span><b class="valor-preco">R$ 65,00</b></div>
-      <p class="aviso-datas">Pré-venda até 5 de novembro. Os livros são postados a partir de 15 de novembro, e o código de rastreio chega no seu e-mail.</p>
-      <div id="encerrada" hidden><p><b>A pré-venda terminou em 5 de novembro.</b> Obrigado a todos que garantiram o seu exemplar. Fique de olho no Instagram <a href="https://instagram.com/prfelipegalucio" style="color:var(--ouro-escuro)">@prfelipegalucio</a> para as próximas novidades.</p></div>
+      <p class="aviso-datas">Os livros são postados a partir de 15 de novembro, e o código de rastreio chega no seu e-mail.</p>
 
       <div id="etapa-endereco">
         <form id="entrega" novalidate>
@@ -293,8 +292,7 @@
   // ================= CONFIGURACAO DA VENDA (Instagram, envio pelos Correios) =================
   var PRECO = 'R$ 65,00';          // frete incluso (definido pelo Felipe em 19/10/2026)
   var LINK_PAGBANK = 'https://pag.ae/82gjowTxH';   // PagBank de R$ 65 (trocado pelo Felipe em 19/10/2026)
-  var PRAZO_ENVIO = '';            // o texto das datas ja esta no HTML (pre-venda ate 05/11, envios a partir de 15/11)
-  var FIM = new Date('2026-11-05T23:59:59-03:00');   // fim da pre-venda, horario de Maraba
+  var PRAZO_ENVIO = '';            // o texto das datas ja esta no HTML (envios a partir de 15/11)
   // Formulario do Google que recebe o cadastro (o sync.py do VPS le a planilha dele).
   // Formulario proprio desta venda (criado pelo VPS em 19/10/2026). NAO usar o da igreja nem o do Pedro.
   var FORM = {
@@ -305,11 +303,6 @@
 
   document.querySelectorAll('.valor-preco').forEach(function(el){ el.textContent = PRECO; });
   if (PRAZO_ENVIO) document.querySelectorAll('.prazo-envio').forEach(function(el){ el.textContent = PRAZO_ENVIO; });
-  if (new Date() > FIM && location.search.indexOf('teste') < 0){
-    document.getElementById('etapa-endereco').hidden = true;
-    document.querySelector('.aviso-datas').hidden = true;
-    document.getElementById('encerrada').hidden = false;
-  }
 
   var oculto = document.getElementById('envio-oculto');
   if (FORM.action){
