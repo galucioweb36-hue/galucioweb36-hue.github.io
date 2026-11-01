@@ -78,8 +78,8 @@
   .btn-ouro:hover{background:var(--ouro-claro);}
   .privacidade{font-size:0.84rem;color:var(--ardosia);margin-top:14px;}
 
-  #pagamento,#encerrada{display:none;}
-  #pagamento.mostrar,#encerrada.mostrar{display:block;}
+  #pagamento{display:none;}
+  #pagamento.mostrar{display:block;}
   .caixa-pagar{background:var(--cacau);color:var(--claro);border-radius:12px;padding:30px 26px;text-align:center;}
   .caixa-pagar h2{color:#fff;font-size:1.5rem;margin-bottom:10px;}
   .caixa-pagar p{color:var(--claro-dim);max-width:44ch;margin:0 auto 20px;}
@@ -109,7 +109,7 @@
   <div class="wrap topo-linha">
     <img src="../../img/livro-para-que-nada-se-perca.webp" alt="Livro Para que Nada se Perca">
     <div>
-      <div class="etiqueta">Pré-venda · até 31 de outubro</div>
+      <div class="etiqueta">Pré-venda</div>
       <h1>Para que Nada se Perca</h1>
       <div class="sub">365 porções da Palavra pregada para o seu dia</div>
       <div class="valor">R$ 55,00 <small>por exemplar</small></div>
@@ -119,13 +119,6 @@
 
 <main>
   <div class="wrap">
-
-    <div id="encerrada">
-      <div class="aviso">
-        <p><b>A pré-venda terminou em 31 de outubro.</b></p>
-        <p>Obrigado a todos que garantiram o seu exemplar. Se você ficou de fora, fale com a secretaria da igreja.</p>
-      </div>
-    </div>
 
     <div id="etapa-cadastro">
       <div class="aviso">
@@ -187,18 +180,11 @@
 <script>
 (function(){
   // ---- configuracao da pre-venda ----
-  var FIM = new Date('2026-10-31T23:59:59-03:00');   // horario de Maraba
   var RETIRADA = 'na tarde de autógrafos, em data a ser avisada, ou depois dela na igreja ou com o Pr. Felipe Galucio';
   // um link so: no checkout do PagBank a quantidade muda no lapis ao lado de "1 item"
   var LINK = 'https://pag.ae/82g6pM5Vv';
 
   document.querySelectorAll('.local-retirada').forEach(function(el){ el.textContent = RETIRADA; });
-
-  if (new Date() > FIM && location.search.indexOf('teste') < 0){
-    document.getElementById('etapa-cadastro').style.display = 'none';
-    document.getElementById('encerrada').classList.add('mostrar');
-    return;
-  }
 
   // ---- WhatsApp: mascara simples ----
   var zap = document.getElementById('zap');
