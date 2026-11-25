@@ -143,6 +143,11 @@
             <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@exemplo.com">
             <div class="recado" id="erro-email"></div>
           </div>
+          <div class="campo">
+            <label for="email2">Confirme o e-mail</label>
+            <input id="email2" type="email" inputmode="email" autocomplete="off" placeholder="digite de novo o mesmo e-mail">
+            <div class="recado" id="erro-email2"></div>
+          </div>
         </div>
         <button class="btn btn-cacau" type="submit" id="continuar">Continuar para o pagamento</button>
         <p class="privacidade">Seus dados servem só para separar o seu livro e te avisar quando ele chegar.</p>
@@ -195,12 +200,25 @@
     else this.value = v;
   });
 
-  ['nome','email','zap'].forEach(function(id){
+  ['nome','email','email2','zap'].forEach(function(id){
     document.getElementById(id).addEventListener('input', function(){
       this.classList.remove('erro');
       document.getElementById('erro-' + id).textContent = '';
     });
   });
+
+  // erros comuns de digitacao no dominio do e-mail (confirmacao pedida pelo Felipe em 25/11/2026)
+  var DOMINIOS = {'gmail.com':['gmail.con','gmail.co','gmail.cm','gmal.com','gmial.com','gmai.com','gmail.com.br','gamil.com','gnail.com','gmaill.com','gmail.comm','gmeil.com'],
+                  'hotmail.com':['hotmail.con','hotmail.co','hotmal.com','hotmial.com','hotmai.com','hotmail.cm','homail.com','hotmil.com','hotimail.com'],
+                  'outlook.com':['outlook.con','outlok.com','outloo.com','outlook.co','otlook.com'],
+                  'yahoo.com.br':['yahoo.com.br.','yaho.com.br','yahoo.com.bt','yahoo.combr'],
+                  'icloud.com':['icloud.con','iclod.com','icould.com']};
+  function sugestao(email){
+    var partes = email.split('@'); if (partes.length !== 2) return '';
+    var dom = partes[1].toLowerCase();
+    for (var certo in DOMINIOS){ if (DOMINIOS[certo].indexOf(dom) >= 0) return partes[0] + '@' + certo; }
+    return '';
+  }
 
   function falha(id, msg){
     var el = document.getElementById(id);
@@ -229,6 +247,11 @@
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(document.getElementById('email').value.trim())){
       el = falha('email','Confere o e-mail, parece incompleto.'); primeiro = primeiro || el;
+    } else if (sugestao(document.getElementById('email').value.trim())){
+      el = falha('email','Confere o final do e-mail. Você quis dizer ' + sugestao(document.getElementById('email').value.trim()) + '?'); primeiro = primeiro || el;
+    }
+    if (document.getElementById('email2').value.trim().toLowerCase() !== document.getElementById('email').value.trim().toLowerCase()){
+      el = falha('email2','Os dois e-mails não estão iguais. Confira e digite de novo.'); primeiro = primeiro || el;
     }
     if (primeiro){ primeiro.scrollIntoView({behavior:'smooth', block:'center'}); primeiro.focus({preventScroll:true}); return; }
 
